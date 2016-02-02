@@ -1,0 +1,80 @@
+$color__link : #0999F3;
+a {
+	color: $color-red;
+	text-decoration: none;
+	@include transition(all 0.4s ease);
+	/*&:visited {
+		color: $color__link-visited;
+	}*/
+	&:hover,
+	&:active {
+		color: $color__link-hover;
+	}
+	&:focus {
+		outline: none;
+	}
+	&:hover,
+	&:active {
+		outline: 0;
+	}
+}
+.more {
+	width: 173px;
+	height: 53px;
+	@include transition(all 0.2s ease);
+	background: {
+		image: url(images/more.png);
+		repeat: no-repeat;
+	}
+	& a {
+		width: 173px;
+		height: 53px;
+		display: block;
+		text-indent: -9000px;
+		
+	}
+	&:hover {
+		transform: rotate(5deg);
+	}
+}
+.more-bowl {
+	width: 151px;
+	height: 68px;
+	@include transition(all 0.2s ease);
+	background: {
+		image: url(images/more-bowl.png);
+		repeat: no-repeat;
+		size: cover;
+	}
+	& a {
+		width: 151px;
+		height: 68px;
+		display: block;
+		text-indent: -9000px;
+		
+	}
+	&:hover {
+		transform: rotate(5deg);
+	}
+}
+.gottoregion {
+	width: auto;
+	margin: 20px 0 50px 0;
+	font: {
+		size: 28px;
+		family :$font-heading;
+	}
+	& a {
+		color: #fff;
+		padding: 10px 30px;
+		background: {
+			color: $color-blue;
+		}
+		border: {
+			radius: 15px;
+			style: solid;
+			width: 2px;
+			color: #000;
+		}
+	}
+}

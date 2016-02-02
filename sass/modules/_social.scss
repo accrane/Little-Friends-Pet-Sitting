@@ -1,0 +1,148 @@
+/* Social CSS */
+
+/*
+	Below are the classes that get added dependant on how many
+	social media icons are needed. This happens automatically
+	when fields are filled out in theme options. 
+	
+	You may need to adjust the widths depending on the size of the icons.
+
+*/
+#sociallinks-footer-main {
+	position: relative;
+	margin: 15px auto;
+	display: block;
+	z-index: 1001;
+	width: 280px;
+	@media screen and (min-width: $tabwidth) {
+		display: none;
+	}
+}
+#sociallinks-footer {
+	position: relative;
+	margin: 15px auto;
+	display: none;
+	z-index: 1001;
+
+	@media screen and (min-width: $tabwidth) {
+		margin: 0px 0 0 0;
+		float: right;
+		display: block;
+	}
+	@media screen and (min-width: $midwidth) {
+		
+	}
+	@media screen and (min-width: $deskwidth) {
+		margin: 5px 0 0 0;
+	}
+}
+#sociallinks-header {
+	position: relative;
+	margin: 15px auto;
+	display: none;
+	z-index: 1001;
+
+	@media screen and (min-width: $tabwidth) {
+		margin: 0px 0 0 0;
+		float: left;
+		
+	}
+	@media screen and (min-width: $midwidth) {
+		display: block;
+	}
+	@media screen and (min-width: $deskwidth) {
+		margin: 15px 0 0 0;
+	}
+}
+#sociallinks {
+	//display: none;
+
+	@media screen and (min-width: $tabwidth) {
+		display: block;
+	}
+	@media screen and (min-width: $deskwidth) {
+		
+	}
+}
+
+.socialone{width: 30px;}
+.socialtwo{width: 60px;}
+.socialthree{width: 90px;}
+.socialfour{width: 120px;}
+.socialfive{width: 150px;}
+.socialsix{width: 180px;}
+.socialseven{width: 280px;}
+
+#sociallinks  ul {
+	margin: 0px;
+	padding: 0px;
+	list-style-type: none;
+	z-index: 2;	
+	position: relative;
+}
+/*
+	The amount of margin between each icon
+*/
+#sociallinks  ul li {
+	float: left;
+	position: relative;
+	margin: 0px 0px;
+}
+
+#sociallinks  ul a {
+	text-decoration: none;
+	background-image: url(images/social.png);
+	background-size: 280px 40px;
+	background-repeat: no-repeat;
+	display: inline-block;
+	height: 40px;
+	width: 40px;
+	text-indent: -9000px;
+	position: relative;
+}
+#sociallinks ul a {
+	transform: scale(1.2);
+}	
+#sociallinks ul a:hover {
+	transform: scale(1.3);
+}
+#sociallinks  .facebook a {
+	background-position: -0px -0px;
+}
+
+#sociallinks  .twitter a {
+	background-position: -40px -0px;
+}
+// #sociallinks .twitter a:hover {
+// 	background-position: -30px -30px;
+// }
+#sociallinks  .instagram a {
+	background-position: -80px -0px;
+}
+// #sociallinks .instagram a:hover {
+// 	background-position: -30px -30px;
+// }
+#sociallinks  .linkedin a {
+	background-position: -120px 0px;
+}
+// #sociallinks  .linkedin a:hover {
+// 	background-position: -60px -30px;
+// }
+#sociallinks  .youtube a {
+	background-position: -160px -0px;
+}
+// #sociallinks .youtube a:hover {
+// 	background-position: -90px -30px;
+// }
+#sociallinks  .google a {
+	background-position: -200px -0px;
+}
+// #sociallinks .google a:hover {
+// 	background-position: -90px -30px;
+// }
+#sociallinks  .yelp a {
+	background-position: -240px -0px;
+}
+// #sociallinks .yelp a:hover {
+// 	background-position: -90px -30px;
+// }

@@ -1,0 +1,113 @@
+$font__main: sans-serif;
+$font__code: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+$font__pre: "Courier 10 Pitch", Courier, monospace;
+$font__line-height-body: 1.5;
+$font__line-height-pre: 1.6;
+
+h1 {
+	color: $color-red;
+	font: {
+		family: $font-heading;
+		size: 20px;
+	}
+
+	@media screen and (min-width: $tabwidth) {
+		font-size: 24px;
+	}
+	@media screen and (min-width: $deskwidth) {
+		font-size: 32px;
+	}
+}
+.entry-content {
+	line-height: 1.5;
+	font: {
+		family: $font-archivo;
+		size: 18px;
+		weight: 400;
+	}
+	& h2 {
+		font: {
+			family: $font-heading;
+			size: 22px;
+		}
+		@media screen and (min-width: $tabwidth) {
+			font-size: 24px;
+		}
+		@media screen and (min-width: $deskwidth) {
+			font-size: 26px;
+		}
+	}
+	& h3 {
+		font: {
+			family: $font-heading;
+			size: 22px;
+		}
+		@media screen and (min-width: $tabwidth) {
+			font-size: 24px;
+		}
+		@media screen and (min-width: $deskwidth) {
+			font-size: 26px;
+		}
+		
+	}
+	& h4 {
+		font: {
+			family: $font-heading;
+			size: 22px;
+		}
+		@media screen and (min-width: $tabwidth) {
+			font-size: 24px;
+		}
+		@media screen and (min-width: $deskwidth) {
+			font-size: 26px;
+		}
+	}
+	& h5 {
+		font: {
+			family: $font-heading;
+			size: 22px;
+		}
+		@media screen and (min-width: $tabwidth) {
+			font-size: 24px;
+		}
+		@media screen and (min-width: $deskwidth) {
+			font-size: 26px;
+		}
+	}
+	& h6 {
+		font: {
+			family: $font-heading;
+			size: 22px;
+		}
+		@media screen and (min-width: $tabwidth) {
+			font-size: 24px;
+		}
+		@media screen and (min-width: $deskwidth) {
+			font-size: 26px;
+		}
+	}
+	& p {
+		margin-bottom: 20px;
+
+	}
+	& ul, & ol {
+		margin: 0 0 20px 10px;
+
+		@media screen and (min-width: $tabwidth) {
+			margin: 0 0 20px 20px;
+		}
+		@media screen and (min-width: $deskwidth) {
+			margin: 0 0 20px 30px;
+		}
+	}
+	& li {
+		margin: 0 0 0 10px;
+
+		@media screen and (min-width: $tabwidth) {
+			margin: 0 0 0 20px;
+		}
+		@media screen and (min-width: $deskwidth) {
+			margin: 0 0 0 30px;
+		}
+	}
+}

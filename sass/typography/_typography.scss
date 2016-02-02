@@ -1,0 +1,19 @@
+@import url(https://fonts.googleapis.com/css?family=Margarine);
+@import url(https://fonts.googleapis.com/css?family=PT+Sans);
+
+
+
+body,
+button,
+input,
+select,
+textarea {
+	color: $color-main;
+	font-family: $font-stack;
+	@include font-size(1);
+	line-height: $font__line-height-body;
+}
+
+@import "headings";
+
+@import "copy";
