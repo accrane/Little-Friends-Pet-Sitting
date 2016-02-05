@@ -1,5 +1,9 @@
 
+
+
 <div class="flexslider">
+
+<?php get_template_part('template-parts/signs-mobile'); ?>
 
   <div class="hanger">
       <div class="service-signs-vertical-hanger">
@@ -87,7 +91,7 @@
 
 
     <div class="location-main-news">
-      <?php get_template_part('template-parts/home-news'); ?>
+      <?php get_template_part('template-parts/location-news'); ?>
     </div><!-- locaiton main news -->
 
   <div class="divider-location"></div>

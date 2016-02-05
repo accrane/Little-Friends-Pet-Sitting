@@ -154,25 +154,25 @@ $urlParam = sanitize_title_with_dashes($region[0]->name);
 			<?php if( $hometown != '' ) : ?>
 				<div class="hometown">
 					<span class="pets-title">Hometown:</span><br>
-					<span class="pets-sum"><?php echo $hometown; ?></span>
+					<span class="pets-sum"><?php echo hometown_field_excerpt(); ?></span>
 				</div><!-- hometown -->
 			<?php endif; ?>
 			<?php if( $pets != '' ) : ?>
 				<div class="pets">
 					<span class="pets-title">Pets:</span><br>
-					<span class="pets-sum"><?php echo sitter_pets_excerpt() ?></span>
+					<span class="pets-sum"><?php echo sitter_pets_excerpt(); ?></span>
 				</div><!-- hometown -->
 			<?php endif; ?>
 			<?php if( $funFacts != '' ) : ?>
 				<div class="funfacts">
 					<span class="pets-title">Fun Facts:</span><br>
-					<span class="pets-sum"><?php echo sitter_funfact_excerpt() ?></span>
+					<span class="pets-sum"><?php echo sitter_funfact_excerpt(); ?></span>
 				</div><!-- hometown -->
 			<?php endif; ?>
 			<?php if( $bio != '' ) : ?>
 				<div class="other">
 					<span class="pets-title">Bio:</span><br>
-					<span class="pets-sum"><?php echo sitter_field_excerpt() ?></span>
+					<span class="pets-sum"><?php echo sitter_field_excerpt(); ?></span>
 				</div><!-- hometown -->
 			<?php endif; ?>
 

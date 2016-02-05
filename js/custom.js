@@ -31,8 +31,7 @@ jQuery(document).ready(function ($) {
 		inline:true,
 		width: '80%', 
 
-	   
-	});
+	 });
 
 
 	// $(".inline").colorbox({inline:true, width:"50%"});

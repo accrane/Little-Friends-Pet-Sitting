@@ -3517,7 +3517,8 @@ button.menu-toggle {
 #cboxOverlay {
   background: #8277b7; }
 
-#inline_content {
+#inline_content,
+#late-booking {
   background: rgba(255, 255, 255, 0.6);
   border-radius: 20px;
   padding: 5%;
@@ -4240,7 +4241,9 @@ h1 {
 
 .find-locations, .static-header {
   background-image: url(images/green-pattern.png);
-  background-repeat: repeat; }
+  background-repeat: repeat;
+  border-top: 3px solid #42b7d9;
+  border-bottom: 3px solid #42b7d9; }
 
 .static-header {
   width: 100%;
@@ -4309,7 +4312,9 @@ h1 {
 
 #masthead {
   padding: 50px 0 0 0;
-  clear: both; }
+  clear: both;
+  width: 100%;
+  position: relative; }
   @media screen and (min-width: 600px) {
     #masthead {
       padding: 50px 0 0 0; } }
@@ -4963,16 +4968,15 @@ _________________________________*/
       display: block; } }
 
 .sign {
-  width: 164px;
-  height: 154px;
-  position: relative;
-  background-image: url(images/sign.png);
-  background-repeat: no-repeat;
-  background-size: cover; }
+  width: auto;
+  position: relative; }
   @media screen and (min-width: 600px) {
     .sign {
       width: 120px;
-      height: 113px; } }
+      height: 113px;
+      background-image: url(images/sign.png);
+      background-repeat: no-repeat;
+      background-size: cover; } }
   @media screen and (min-width: 1160px) {
     .sign {
       width: 164px;
@@ -5017,6 +5021,29 @@ _________________________________*/
 .sign-hanging {
   float: right;
   margin: -20px 0px 0 0; }
+
+.mobile-signs {
+  display: block;
+  width: 100%; }
+  @media screen and (min-width: 600px) {
+    .mobile-signs {
+      display: none; } }
+
+.mobile-sign {
+  width: 30%;
+  padding: 3% 1%;
+  margin: 1.5%;
+  background-color: #42b7d9;
+  color: #fff;
+  float: left;
+  text-align: center;
+  line-height: 1;
+  border-radius: 10px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #000; }
+  .mobile-sign a {
+    color: #fff; }
 
 .z1 {
   z-index: 1; }
@@ -5328,6 +5355,7 @@ h2.pricing-title {
   border: 2px solid #000;
   border-radius: 20px;
   padding: 5%;
+  margin-bottom: 15px;
   background-color: #86AE35; }
 
 .side-box-inner {
@@ -5348,6 +5376,22 @@ h2.pricing-title {
     .side-box-inner li.paw-point::before {
       padding-right: 10px;
       content: url(images/paw-point.png); }
+
+.side-box-inner-link {
+  width: 100%;
+  border-radius: 20px;
+  background-color: #C3D79A;
+  text-align: center; }
+  .side-box-inner-link h3 {
+    color: #000;
+    font-family: "Margarine", cursive;
+    font-size: 14px; }
+  .side-box-inner-link a {
+    display: block;
+    border-radius: 20px;
+    padding: 20px 0; }
+    .side-box-inner-link a:hover {
+      background-color: rgba(255, 255, 255, 0.8); }
 
 /*
 
@@ -5760,16 +5804,16 @@ h2.pricing-title {
 .backtotop {
   width: auto;
   position: absolute;
-  bottom: 30px;
-  right: 30px;
+  bottom: 25px;
+  right: 35px;
   font-family: "Margarine", cursive;
   font-size: 14px; }
 
 .backtotop a {
   color: #fff;
   text-decoration: none;
-  padding: 10px;
-  border-radius: 50%;
+  padding: 5px;
+  border-radius: 10px;
   background-color: rgba(255, 255, 255, 0.5);
   -webkit-transition: all 0.14s ease;
   -moz-transition: all 0.14s ease;
@@ -5777,7 +5821,7 @@ h2.pricing-title {
   -o-transition: all 0.14s ease;
   transition: all 0.14s ease; }
   .backtotop a:hover {
-    padding: 20px;
+    padding: 10px;
     bottom: 40px; }
 
 .sitter-bottom {
@@ -5940,10 +5984,15 @@ h2.pricing-title {
   @media screen and (min-width: 830px) {
     #meet-title {
       top: 200px;
-      left: 220px; } }
+      left: 220px;
+      font-size: 14px; } }
+  @media screen and (min-width: 1160px) {
+    #meet-title {
+      left: 245px;
+      font-size: 16px; } }
 
 .hanger {
-  width: 159px;
+  width: 179px;
   height: 49px; }
   @media screen and (min-width: 600px) {
     .hanger {
@@ -5988,15 +6037,22 @@ h2.pricing-title {
   line-height: 1;
   padding-top: 10px; }
   .new-client h2, .existing-client h2 {
+    margin: 10px 0;
     font-family: "Margarine", cursive;
-    font-size: 30px;
+    font-size: 20px;
     color: #000;
     text-align: center; }
+    @media screen and (min-width: 830px) {
+      .new-client h2, .existing-client h2 {
+        font-size: 30px; } }
   .new-client p, .existing-client p {
     font-family: "PT Sans Narrow", sans-serif;
-    font-size: 30px;
+    font-size: 20px;
     color: #000;
     text-align: center; }
+    @media screen and (min-width: 830px) {
+      .new-client p, .existing-client p {
+        font-size: 30px; } }
   .new-client a, .existing-client a {
     display: block; }
   @media screen and (min-width: 1160px) {
@@ -6311,5 +6367,20 @@ h2.pricing-title {
   width: 82px;
   background-position: -336px -0px;
   position: relative; }
+
+input.gform_next_button {
+  background-color: #b80808;
+  color: #fff;
+  box-shadow: none;
+  padding: 20px 30px;
+  font-size: 20px;
+  -webkit-transition: all ease 0.3s;
+  -moz-transition: all ease 0.3s;
+  -ms-transition: all ease 0.3s;
+  -o-transition: all ease 0.3s;
+  transition: all ease 0.3s; }
+  input.gform_next_button:hover {
+    box-shadow: none;
+    transform: scale(1.1); }
 
 /*# sourceMappingURL=style.css.map */

@@ -22,7 +22,9 @@ if( is_single() ) {
     $pageID = '2277';
   } elseif( $mylocal == 'lake-norman-area' ) {
     $pageID = '2275';
-  } 
+  } else {
+    $pageID = 'non-location';
+  }
 
  
   // Our Region
@@ -32,7 +34,14 @@ if( is_single() ) {
   $cities = get_field('cities', 'location_' . $ID);
   $num = count($cities);
   $i = 0;
-  $link = get_page_link($pageID);
+
+  if( $pageID == 'non-location') {
+    $link = get_bloginfo('url') . '/';
+    $pageType = 'non-location';
+  } else {
+    $link = get_page_link($pageID);
+  }
+  
 
 } else { // else if not single
 
@@ -79,6 +88,8 @@ if( is_single() ) {
 <div class="static-header">
 
   <div class="wrapper">
+
+    <?php  if( $pageType != 'non-location') { ?>
     <div class="location-tab">
       <h2><?php echo $region[0]->name; ?></h2>
       <div class="not-your-location">
@@ -102,13 +113,14 @@ if( is_single() ) {
           ?>
       </p>
     </div><!-- location tab -->
+    <?php } // endif not a location ?>
 
     <div class="location-nav">
-      <ul>
-        <li><a href="<?php echo $link . 'blog'; ?>">Blog</a></li>
-        <li><a href="<?php echo $link . 'join-our-team'; ?>">Join Our Team</a></li>
-        <li><a href="<?php echo $link . 'contact-us'; ?>">Contact Us</a></li>
-      </ul>
+        <ul>
+          <li><a href="<?php echo $link . 'blog'; ?>">Blog</a></li>
+          <li><a href="<?php echo $link . 'join-our-team'; ?>">Join Our Team</a></li>
+          <li><a href="<?php echo $link . 'contact-us'; ?>">Contact Us</a></li>
+        </ul>
       </div><!-- location nav -->
 
     </div><!-- wrapper -->
@@ -179,7 +191,9 @@ if( is_single() ) {
                 wp_nav_menu( array( 'theme_location' => 'southcharlotte', 'menu_id' => 'southcharlotte-menu' ) ); 
             } elseif( is_tree(2281) || $mylocal == 'southeast-charlotte' ) {
                 wp_nav_menu( array( 'theme_location' => 'southeastcharlotte', 'menu_id' => 'southeastcharlotte-menu' ) ); 
-            } 
+            } else {
+                wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); 
+            }
           
           ?>
         </nav><!-- #site-navigation -->

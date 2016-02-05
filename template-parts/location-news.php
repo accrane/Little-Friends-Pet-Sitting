@@ -52,7 +52,7 @@ $urlParam = sanitize_title_with_dashes($region[0]->name);
     	<?php the_excerpt(); ?>
 
     	<div class="more-bowl home-bowl">
-    		<a href="<?php the_permalink(); ?>">Read More</a>
+    		<a href="<?php the_permalink(); ?>?location=<?php echo $urlParam ?>">Read More</a>
     	</div>
 
     <?php 

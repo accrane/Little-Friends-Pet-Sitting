@@ -30,6 +30,7 @@ $parentLink = get_page_link($pid);
 	<div id="primary" class="">
 		<main id="main" class="site-main" role="main">
 
+			<?php get_template_part('template-parts/signs-mobile'); ?>
 			<?php get_template_part('template-parts/signs-horizonal'); ?>
 
 		
@@ -210,6 +211,9 @@ $parentLink = get_page_link($pid);
 				<?php endwhile; ?>
 			<?php endif; ?>
 
+
+				<?php echo $shortDesc; ?>
+				
 				</div><!-- content area -->
 
 				<div class="service-side-area blocks">

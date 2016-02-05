@@ -82,12 +82,12 @@ function custom_tv_excerpt() {
 ---------------------------------------*/
 function sitter_pets_excerpt() {
   global $post;
-  $text = get_field('bio'); //Replace 'your_field_name'
+  $text = get_field('pets'); //Replace 'your_field_name'
   if ( '' != $text ) {
     $text = strip_shortcodes( $text );
     $text = apply_filters('the_content', $text);
     $text = str_replace(']]&gt;', ']]&gt;', $text);
-    $excerpt_length = 10; // 20 words
+    $excerpt_length = 8; // 20 words
     $excerpt_more = apply_filters('excerpt_more', ' ' . '[...]');
     $text = wp_trim_words( $text, $excerpt_length, $excerpt_more );
   }
@@ -98,12 +98,12 @@ function sitter_pets_excerpt() {
 ---------------------------------------*/
 function sitter_funfact_excerpt() {
   global $post;
-  $text = get_field('bio'); //Replace 'your_field_name'
+  $text = get_field('fun_facts'); //Replace 'your_field_name'
   if ( '' != $text ) {
     $text = strip_shortcodes( $text );
     $text = apply_filters('the_content', $text);
     $text = str_replace(']]&gt;', ']]&gt;', $text);
-    $excerpt_length = 20; // 20 words
+    $excerpt_length = 15; // 20 words
     $excerpt_more = apply_filters('excerpt_more', ' ' . '[...]');
     $text = wp_trim_words( $text, $excerpt_length, $excerpt_more );
   }
@@ -120,6 +120,22 @@ function sitter_field_excerpt() {
     $text = apply_filters('the_content', $text);
     $text = str_replace(']]&gt;', ']]&gt;', $text);
     $excerpt_length = 20; // 20 words
+    $excerpt_more = apply_filters('excerpt_more', ' ' . '[...]');
+    $text = wp_trim_words( $text, $excerpt_length, $excerpt_more );
+  }
+  return apply_filters('the_excerpt', $text);
+}
+/*-------------------------------------
+  Hometown Excerpt for the Sitters page
+---------------------------------------*/
+function hometown_field_excerpt() {
+  global $post;
+  $text = get_field('hometown'); //Replace 'your_field_name'
+  if ( '' != $text ) {
+    $text = strip_shortcodes( $text );
+    $text = apply_filters('the_content', $text);
+    $text = str_replace(']]&gt;', ']]&gt;', $text);
+    $excerpt_length = 10; // 20 words
     $excerpt_more = apply_filters('excerpt_more', ' ' . '[...]');
     $text = wp_trim_words( $text, $excerpt_length, $excerpt_more );
   }

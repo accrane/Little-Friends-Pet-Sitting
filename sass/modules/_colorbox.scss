@@ -31,7 +31,9 @@
 */
 #cboxOverlay{background:$color-purple;}
 
-#inline_content {
+#inline_content,
+#late-booking
+{
 	background: rgba(255,255,255,.6);
 	border-radius: 20px;
 	padding: 5%;

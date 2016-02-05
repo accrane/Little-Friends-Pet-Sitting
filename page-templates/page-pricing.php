@@ -27,6 +27,7 @@ $parentLink = get_page_link($pid);
 	<div id="primary" class="">
 		<main id="main" class="site-main" role="main">
 
+			<?php get_template_part('template-parts/signs-mobile'); ?>
 			<?php get_template_part('template-parts/signs-horizonal'); ?>
 
 		<div id="top"></div>
@@ -54,7 +55,11 @@ $parentLink = get_page_link($pid);
 					)
 				)
 			));
-			if ($wp_query->have_posts()) : ?>
+			if ($wp_query->have_posts()) : 
+
+				$shortDesc = get_field('short-description');
+
+				?>
 
 			<div class="content-area">
 
@@ -107,7 +112,7 @@ $parentLink = get_page_link($pid);
 					<?php endwhile; ?>
 				<?php endif; ?>
 
-				
+				<?php echo $shortDesc; ?>
 
 				
 
@@ -117,6 +122,22 @@ $parentLink = get_page_link($pid);
 
 
 			<div class="widget-area">
+
+				<div class="side-box">
+					<div class="side-box-inner-link">
+						<a href="#late-booking" class="inline">
+							<h3>Late Booking Fee and Holidays</h3>
+						</a>
+					</div>
+				</div><!-- sidebox -->
+
+				<div style="display: none">
+					<div id="late-booking">
+						<?php the_field('services_pricing', 'option'); ?>
+					</div>
+				</div>
+
+
 				<?php if( have_rows('pricing_reasons', 'option') ): ?>
 				<div class="side-box">
 					<div class="side-box-inner">

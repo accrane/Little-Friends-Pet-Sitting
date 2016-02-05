@@ -27,7 +27,12 @@ $terms = get_terms($taxonomies, $args);
 <h3>Locations: </h3>
 
 <ul>
-	<?php foreach( $terms as $term ) {
+	<?php 
+$i = 0;
+// Create the link array
+$linkArray = array();
+
+	foreach( $terms as $term ) {
 		
 		$name = $term->name;
 		$ID = $term->term_id;
@@ -37,24 +42,21 @@ $terms = get_terms($taxonomies, $args);
 		$relatedArea = get_field('related_region', 'location_' . $ID);
 		
 		$num = count($cities);
-		$i = 0;
+		
 
 		if( have_rows('cities','location_' . $ID) ) :
 			while( have_rows('cities','location_' . $ID) ) : the_row(); $i++;
 				
 				$cName = get_sub_field('city');
-
-
-				echo '<li>';
-				echo '<a href="' . $relatedArea . '">';
-				echo $cName;
-				if( $num > $i ) {echo ', ';}
-				echo '</a>';
-				echo '</li>'; 
+				// put names and links into array
+				$linkArray[] = '<li><a href="' . $relatedArea . '">'.$cName.'</a></li>';
 
 			endwhile;
 		endif;
 	}
+	// comma separate out the results
+	$cityLinks = implode(",",$linkArray);
+	echo $cityLinks;
 	?>
 	<li></li>
 </ul>

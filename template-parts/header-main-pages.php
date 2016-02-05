@@ -18,7 +18,7 @@ $phone = get_field('phone_number', 'option')
     <div id="sociallinks-header"><?php acc_social_links(); ?></div>
 
     <div class="btn-contact">
-        <a href="<?php bloginfo('url'); ?>/contact-us/">Contact</a>
+        <a href="<?php bloginfo('url'); ?>/contact-us/">Contact Us</a>
       </div><!-- contact -->
     </div><!-- wrapper -->
 

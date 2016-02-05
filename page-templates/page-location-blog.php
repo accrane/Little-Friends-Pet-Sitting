@@ -12,7 +12,28 @@
 get_header(); 
 
 
+// Get Page ID
+$pageID = get_the_ID();
 
+// If is child page
+if( $post->post_parent ) {
+
+$parent = array_reverse(get_post_ancestors($post->ID));
+$first_parent = get_post($parent[0]);
+$pid = $first_parent;
+
+// Else, get this page ID
+} else {
+$pid = $pageID;
+}
+
+// Our Region
+$region = get_the_terms( $pid, 'location' );
+
+// Term ID
+$ID = $region[0]->term_id;
+// create the location url
+$urlParam = sanitize_title_with_dashes($region[0]->name);
 ?>
 <div class="wrapper">
 	<div id="primary" class="content-area">
