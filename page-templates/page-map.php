@@ -43,7 +43,7 @@ $gaston = get_bloginfo('url') . '/'. 'gastonia-belmont-mount-holly-mt-island/';
 	</div><!-- #primary -->
 
 
-	<div class="services-area">
+	<div class="map-side">
 		
 			<article>
 				<div class="entry-content">

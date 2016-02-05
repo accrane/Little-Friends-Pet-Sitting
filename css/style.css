@@ -4253,6 +4253,19 @@ h1 {
     .widget-area {
       margin: 50px 0 100px 0; } }
 
+.map-side {
+  width: 100%;
+  margin: 0px auto;
+  position: relative; }
+  @media screen and (min-width: 600px) {
+    .map-side {
+      width: 30%;
+      float: right;
+      margin: 40px 0 50px 0; } }
+  @media screen and (min-width: 1160px) {
+    .map-side {
+      margin: 115px 0 100px 0; } }
+
 .service-side-area {
   width: 100%;
   margin: 0px auto;
