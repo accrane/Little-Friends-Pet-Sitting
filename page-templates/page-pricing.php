@@ -83,12 +83,13 @@ $parentLink = get_page_link($pid);
                     	$link = $parentLink . 'services-pricing/pet-sitting-dog-walking/#' . $santiTitle;
                     }
                     
-?>
-						<h2 class="pricing-title"><?php the_title(); ?></h2>
-						<p class="readmore-service">
-							<a href="<?php echo $link; ?>">Read More About this Service</a>
-						</p>
-
+?>			
+						<div class="entry-content">
+							<h2 class="pricing-title"><?php the_title(); ?></h2>
+							<p class="readmore-service">
+								<a href="<?php echo $link; ?>">Read More About this Service</a>
+							</p>
+						</div><!-- entry content -->
 						<div class="clear"></div>
 						
 				<?php if( have_rows('service_pricing') ): ?>

@@ -184,8 +184,9 @@ $parentLink = get_page_link($pid);
 			?>
 						<div class="content-area blocks">
 							<a name="<?php echo $link; ?>"></a>
-							<h2><?php the_title(); ?></h2>
+							
 							<div class="entry-content">
+								<h2><?php the_title(); ?></h2>
 								<?php the_field('short-description'); ?>
 							</div><!-- entry content -->
 					
@@ -213,7 +214,7 @@ $parentLink = get_page_link($pid);
 
 
 				<?php echo $shortDesc; ?>
-				
+
 				</div><!-- content area -->
 
 				<div class="service-side-area blocks">

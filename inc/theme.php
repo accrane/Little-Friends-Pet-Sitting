@@ -18,10 +18,11 @@ add_image_size('tv-thumb', 245, 180, true );
 function my_login_logo() { ?>
 <style type="text/css">
   body.login div#login h1 a {
-  	background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/css/images/logo.png);
-  	background-size: 280px 109px;
+  	/*background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/css/images/logo.png);*/
+    background-image: url(<?php echo get_field('logo', 'option'); ?>);
+  	background-size: 280px 139px;
   	width: 280px;
-  	height: 109px;
+  	height: 139px;
   }
 </style>
 <?php }

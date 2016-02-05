@@ -33,6 +33,8 @@ jQuery(document).ready(function ($) {
 
 	 });
 
+// Map Highlight
+$('.map').maphilight({fade: false});
 
 	// $(".inline").colorbox({inline:true, width:"50%"});
 

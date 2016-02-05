@@ -26,6 +26,13 @@ function acstarter_scripts() {
 		);
 
 	wp_enqueue_script( 
+			'map-highlight', 
+			get_template_directory_uri() . '/js/map-highlight.js', 
+			array(), '20120206', 
+			true 
+		);
+
+	wp_enqueue_script( 
 			'acstarter-colorbox', 
 			get_template_directory_uri() . '/js/colorbox.js', 
 			array(), '20120206', 

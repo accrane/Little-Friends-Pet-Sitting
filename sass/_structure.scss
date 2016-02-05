@@ -85,7 +85,23 @@ h1 {text-align: left;}
 		
 	}
 }
-
+.contact-area {
+	width: 100%;
+	margin: 0px auto;
+	padding-bottom: 10px;
+	text-align: left;
+	overflow: hidden;
+	
+	@media screen and (min-width: $tabwidth) {
+		width: 40%;
+		float: left;
+		margin: 0;
+		padding-bottom: 50px;
+	}
+	@media screen and (min-width: $deskwidth) {
+		/*width: 1200px;*/
+	}
+}
 .widget-area {
 	width: 100%;
 	margin: 0px auto;
@@ -113,6 +129,20 @@ h1 {text-align: left;}
 	}
 	@media screen and (min-width: $deskwidth) {
 		margin: 0;
+	}
+}
+.map-area {
+	width: 100%;
+	margin: 0px auto;
+	position: relative;
+	
+	@media screen and (min-width: $tabwidth) {
+		width: 50%;
+		float: right;
+		margin: 40px 0 50px 0;
+	}
+	@media screen and (min-width: $deskwidth) {
+		margin: 50px 0 100px 0;
 	}
 }
 .service-thumb {
@@ -213,6 +243,7 @@ h1 {text-align: left;}
 	}
 	@media screen and (min-width: $deskwidth) {
 		top: 30px;
+		width: 320px;
 	}
 }
 .logo a, h1.logo a {
@@ -1641,11 +1672,9 @@ h2.pricing-title {
 		radius: 10px;
 	}
 }
-.question-image {
-	width: 15px;
-	height: 15px;
+.faq-bone {
 	position: absolute;
-	left: 0px;
+	right: 0px;
 	top: 3px;
 	background:{
 		image: url(images/faq.png);
@@ -1762,6 +1791,20 @@ h2.pricing-title {
 	max-height: 360px;
 	@include transition(all 0.3s ease);
 }
+.owner-readmore, .owner-readless, .faq-bone {
+	background: {
+		image: url(images/faq-bone.png);
+		repeat: no-repeat;
+	}
+	width: 150px;
+	height: 60px;
+	text-align: center;	
+	padding: 15px 0px 0px 0px;
+	font: {
+		family: $font-heading;
+		size: 18px;
+	}
+}
 .owner-readmore, .owner-readless {
 	position: absolute;
 	bottom: -70px;
@@ -1770,18 +1813,11 @@ h2.pricing-title {
 	margin: 0px auto;
 	bottom: -70px;
 	cursor: pointer;
-	padding: 15px 0px 0px 0px;
-	width: 150px;
-	height: 60px;
-	text-align: center;	
-	background: {
-		image: url(images/faq-bone.png);
-		repeat: no-repeat;
-	}
-	font: {
-		family: $font-heading;
-		size: 18px;
-	}
+	
+	
+	
+	
+	
 	@media screen and (min-width: $tabwidth) {
 		position: absolute;
 		bottom: -70px;
@@ -2873,7 +2909,7 @@ h2.pricing-title {
 	}
 	& .cpps a {
 		width:73px;
-		background-position: -515px -0px;
+		background-position: -262px -0px;
 		position: relative;
 	}
 	& .bbb a {

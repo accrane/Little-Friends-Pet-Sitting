@@ -111,3 +111,23 @@ h1 {
 		}
 	}
 }
+.entry-header {
+	line-height: 1.5;
+	font: {
+		family: $font-archivo;
+		size: 18px;
+		weight: 400;
+	}
+	& h2 {
+		font: {
+			family: $font-heading;
+			size: 22px;
+		}
+		@media screen and (min-width: $tabwidth) {
+			font-size: 24px;
+		}
+		@media screen and (min-width: $deskwidth) {
+			font-size: 26px;
+		}
+	}
+}

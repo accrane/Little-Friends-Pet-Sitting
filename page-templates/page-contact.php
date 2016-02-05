@@ -9,7 +9,7 @@
 
 get_header(); ?>
 <div class="wrapper">
-	<div id="primary" class="content-area">
+	<div id="primary" class="contact-area">
 		<main id="main" class="site-main" role="main">
 
 			<?php
@@ -37,7 +37,7 @@ get_header(); ?>
 		</main><!-- #main -->
 	</div><!-- #primary -->
 
-	<div class="widget-area">
+	<div class="map-area">
 		<?php the_field('google_maps'); ?>
 	</div>
 
