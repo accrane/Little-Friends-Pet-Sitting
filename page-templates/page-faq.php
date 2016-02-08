@@ -33,8 +33,8 @@ get_header(); ?>
 
 			<div class="faqrow">
                <div class="question">
-	               	<div class="faq-bone">read more</div>
 	               	<?php echo $question; ?>
+	               	<div class="faq-bone">read more</div>
                </div>
                <div class="answer"><?php echo $answer; ?></div>
             </div><!-- faqrow -->

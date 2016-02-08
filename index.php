@@ -24,7 +24,7 @@ get_header(); ?>
 <div class="find-locations">
 
 	<div class="wrapper">
-		<div class="find-your-location left">
+		<div class="find-your-location find-your-location-home left">
 			<h3>FIND YOUR LOCATION ></h3>
 			<p>Enter your zip code to schedule a service or register as a new client!</p>
 		</div><!-- find your location -->

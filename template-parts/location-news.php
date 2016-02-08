@@ -45,9 +45,9 @@ $urlParam = sanitize_title_with_dashes($region[0]->name);
     <div class="clear"></div>
 
     <?php 
-		if ( has_post_thumbnail() ) { 
-			the_post_thumbnail('medium');
-		} 
+		// if ( has_post_thumbnail() ) { 
+		// 	the_post_thumbnail('medium');
+		// } 
 		?>
     	<?php the_excerpt(); ?>
 

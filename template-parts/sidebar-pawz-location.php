@@ -1,7 +1,12 @@
-        <?php
+<?php
+wp_reset_query();
+    while ( have_posts() ) : the_post();
 
-    $post_object = get_field('featured_pet');
-    
+       $post_object = get_field('featured_pet'); 
+
+    endwhile; // End of the loop.
+            
+
     if( $post_object ): 
 
     // override $post

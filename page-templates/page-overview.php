@@ -66,21 +66,7 @@ if( is_page(2) ) {
 <div class="service-side-area">
 	<div class="sidebar">
 
-		<?php if( !is_page(2)) : // if is not the main ownwers and management page?>
-			<div class="ownerssigns">
-				<div class="sign sign-top ">
-		            <div class="sign-info">
-		                <a href="<?php echo $sas; ?>" target="_blank">Schedule a Service</a>
-		            </div><!-- sign info -->
-		        </div><!-- sign -->
-
-		        <div class="sign sign-top ">
-		            <div class="sign-info">
-		                <a href="<?php echo $link; ?>new-client-registration">New Client Registration</a>
-		            </div><!-- sign info -->
-		        </div><!-- sign -->
-		    </div><!-- ownerssign -->
-		<?php endif; ?>
+		
 
 
 	<div class="sidebar-featured-news">
@@ -133,7 +119,7 @@ if( is_page(2) ) {
             <?php $wp_query->the_post(); ?>
             
             <div class="from"><?php the_field('re:'); ?></div>
-            <div class="test-content"><?php the_content(); ?></div>
+            <div class="test-content"><?php echo get_excerpt(110); ?></div>
             <div class="test-name"><?php the_title(); ?></div>
             
             <?php endwhile; ?>

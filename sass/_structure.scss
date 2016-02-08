@@ -147,7 +147,7 @@ h1 {text-align: left;}
 }
 .map-area {
 	width: 100%;
-	margin: 0px auto;
+	margin: 0px auto 50px auto;
 	position: relative;
 	
 	@media screen and (min-width: $tabwidth) {
@@ -170,8 +170,7 @@ h1 {text-align: left;}
 		image: url(images/green-pattern.png);
 		repeat: repeat;
 	}
-	border-top: 3px solid $color-blue;
-	border-bottom: 3px solid $color-blue;
+	
 }
 // .static-header {
 // 	background: {
@@ -281,6 +280,23 @@ h1 {text-align: left;}
 	@media screen and (min-width: $deskwidth) {
 		padding: 0px 0 0 0;
 	}
+	.header-call-mobile {
+		position:  absolute;
+		width: auto;
+		top: -70px;
+		right: 5px;
+		z-index: 10000;
+		font: {
+			family: $font-heading;
+			size: 14px;
+		}
+		& a {
+			color: #000;
+		}
+		@media screen and (min-width: $tabwidth) {
+			display:  none;
+		}
+	}
 }
 #masthead-home {
 	padding: 50px 0 0 0;
@@ -301,6 +317,23 @@ h1 {text-align: left;}
 		padding: 50px 0 0 0;
 		height: auto;
 	}
+	.header-call-mobile {
+		position:  absolute;
+		width: auto;
+		top: 10px;
+		right: 5px;
+		z-index: 10000;
+		font: {
+			family: $font-heading;
+			size: 14px;
+		}
+		& a {
+			color: #000;
+		}
+		@media screen and (min-width: $tabwidth) {
+			display:  none;
+		}
+	}
 }
 #masthead-main-pages {
 	padding: 50px 0 0 0;
@@ -320,6 +353,23 @@ h1 {text-align: left;}
 	@media screen and (min-width: $deskwidth) {
 		padding: 50px 0 0 0;
 		height: auto;
+	}
+	.header-call-mobile {
+		position:  absolute;
+		width: auto;
+		top: 10px;
+		right: 5px;
+		z-index: 10000;
+		font: {
+			family: $font-heading;
+			size: 14px;
+		}
+		& a {
+			color: #000;
+		}
+		@media screen and (min-width: $tabwidth) {
+			display:  none;
+		}
 	}
 }
 
@@ -599,13 +649,15 @@ _________________________________*/
 	padding: 30px 0;
 	position: relative;
 	overflow:hidden;
+	border-top: 3px solid $color-blue;
+	border-bottom: 3px solid $color-blue;
 }
 .friends-group {
 	width: 300px;
 	height: 62px;
 	text-indent: -9000px;
 	position: absolute;
-	z-index: 10000;
+	
 	top: -42px;
 	background: {
 		image: url(images/friends-group.png);
@@ -617,7 +669,7 @@ _________________________________*/
 	@media screen and (min-width: $tabwidth) {
 		position: absolute;
 		left: 0px;
-		
+		z-index: 10000;
 	}
 	@media screen and (min-width: $deskwidth) {
 		width: 600px;
@@ -625,10 +677,19 @@ _________________________________*/
 		top: -86px;
 	}
 }
-.find-your-location {
+.find-your-location-home {
 	width: 100%;
 	text-align: center;
 
+	@media screen and (min-width: $tabwidth) {
+		width: 55%;
+	}
+}
+.find-your-location-map {
+	width: 100%;
+	text-align: left;
+}
+.find-your-location {
 	& h3 {
 		color: #000;
 		font: {
@@ -646,8 +707,6 @@ _________________________________*/
 	}
 
 	@media screen and (min-width: $tabwidth) {
-		width: 55%;
-
 		& h3 {
 			font: {
 				size: 30px;
@@ -1030,23 +1089,7 @@ _________________________________*/
 		
 	}
 }
-.header-call-mobile {
-	position:  absolute;
-	width: auto;
-	top: 5px;
-	right: 5px;
-	z-index: 10000;
-	font: {
-		family: $font-heading;
-		size: 14px;
-	}
-	& a {
-		color: #000;
-	}
-	@media screen and (min-width: $tabwidth) {
-		display:  none;
-	}
-}
+
 .header-call {
 	width: 100%; 
 	display: none;
@@ -1344,16 +1387,22 @@ h2.pricing-title {
 	float: left;
 }
 .readmore-service {
-	width: auto;
+	width: 100%;
 	display: block;
-	float: right;
-	margin: 30px 20px 0 0px;
+	clear: both;
+	margin: 10px 0px 0 0px;
 	font: {
 		family: $font-heading;
 		size: 14px;
 	}
 	& a {
 		color: #000;
+	}
+	@media screen and (min-width: $tabwidth) {
+		width: auto;
+		margin: 30px 20px 0 0px;
+		float: right;
+		clear: none;
 	}
 }
 .tablerow {
@@ -1687,13 +1736,17 @@ h2.pricing-title {
 	}
 }
 .faq-bone {
-	position: absolute;
-	right: 0px;
-	top: 3px;
+	margin: 10px auto;
 	background:{
 		image: url(images/faq.png);
 		repeat: no-repeat;
 		position: 0 0;	
+	}
+	@media screen and (min-width: $tabwidth) {
+		position: absolute;
+		right: 0px;
+		top: 3px;
+		margin: 0;
 	}
 }
 .question-image.close {
@@ -1708,8 +1761,11 @@ h2.pricing-title {
 		size: 16px;
 	}
 	line-height: 1.3;
-	padding: 0 0 0 40px;
+	padding: 10px;
 	display:none;
+	@media screen and (min-width: $tabwidth) {
+		padding: 0 0 0 40px;
+	}
 }
 
 /* = Owners Management
@@ -1721,22 +1777,33 @@ h2.pricing-title {
 	position: relative;
 }
 .owner-pic-container {
-	width: 345px;
-	height:245px;
+	width: 280px;
+	height:201px;
 	float:left;
 	margin: 0px 20px 0px 0px;
 	background: {
 		image: url(images/card-owner.png);
 		repeat:no-repeat;
+		size: cover;
 	}
 	position: relative;
 	padding: 0px 0px 10px 0;
+	@media screen and (min-width: $tabwidth) {
+		width: 345px;
+		height:245px;
+		background-size: contain;
+	}
 }
 .owner-pic {
-	width: 300px;
-	height: 214px;
+	width: 245px;
+	height: 176px;
 	position: relative;
 	margin: 15px 0px 0px 20px;
+	position: relative;
+	@media screen and (min-width: $tabwidth) {
+		width: 300px;
+		height: 214px;
+	}
 }
 .owner-pic img {
 	position: absolute;
@@ -2378,6 +2445,7 @@ h2.pricing-title {
 	margin: 50px auto;
 	position: relative;
 
+
 	@media screen and (min-width: $tabwidth) {
 		margin: 0 0 100px 0;
 		float: left;
@@ -2426,6 +2494,7 @@ h2.pricing-title {
 			family: $font-stack;
 			size: 20px;
 		}
+		line-height: 1.2;
 		color: #000;
 		text-align:  center;
 		@media screen and (min-width: $midwidth) {

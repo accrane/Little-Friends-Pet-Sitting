@@ -34,7 +34,11 @@ jQuery(document).ready(function ($) {
 	 });
 
 // Map Highlight
-$('.map').maphilight({fade: false});
+$('.map').maphilight({
+	fade: false,
+	fillColor: '000000',
+	fillOpacity: 0.4
+});
 
 	// $(".inline").colorbox({inline:true, width:"50%"});
 

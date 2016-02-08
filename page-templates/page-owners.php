@@ -203,7 +203,7 @@ if( is_page(2) ) {
             <?php $wp_query->the_post(); ?>
             
             <div class="from"><?php the_field('re:'); ?></div>
-            <div class="test-content"><?php the_content(); ?></div>
+            <div class="test-content"><?php echo get_excerpt(110); ?></div>
             <div class="test-name"><?php the_title(); ?></div>
             
             <?php endwhile; ?>

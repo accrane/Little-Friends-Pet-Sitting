@@ -173,6 +173,17 @@ function short_desc_excerpt() {
   return apply_filters('the_excerpt', $text);
 }
 /*-------------------------------------
+  Excerpt Testimonials
+---------------------------------------*/
+function get_excerpt($count){
+  // whatever you want to append on the end of the last word
+  $words = '...';
+  $excerpt = get_the_content();
+  $excerpt = strip_tags($excerpt);
+  $excerpt = wp_trim_words($excerpt, $count, $words);
+  return $excerpt;
+}
+/*-------------------------------------
   Custom WYSIWYG Styles
 ---------------------------------------*/
 function acc_custom_styles($buttons) {
