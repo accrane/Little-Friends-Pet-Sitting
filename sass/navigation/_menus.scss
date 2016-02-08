@@ -418,20 +418,22 @@ button.menu-toggle {
 	}
 }
 .friends {
-	width: 150px;
-	height: 68px;
-	display: none;
+	width: 80px;
+	height: 36px;
+	//display: none;
 	background: {
 		image: url(images/friends.png);
 		repeat: no-repeat;
 		size: cover;
 	}
 	position: absolute;
-	top: -80px;
+	top: -30px;
 	left: 20px;
 	z-index: 1002;
 
 	@media screen and (min-width: $tabwidth) {
+		width: 150px;
+		height: 68px;
 		top: -55px;
 		left: 10px;
 		display:  block;

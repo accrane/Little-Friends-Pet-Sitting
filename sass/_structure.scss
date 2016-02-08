@@ -657,7 +657,7 @@ _________________________________*/
 	height: 62px;
 	text-indent: -9000px;
 	position: absolute;
-	
+	display: none;
 	top: -42px;
 	background: {
 		image: url(images/friends-group.png);
@@ -670,6 +670,7 @@ _________________________________*/
 		position: absolute;
 		left: 0px;
 		z-index: 10000;
+		display: block;
 	}
 	@media screen and (min-width: $deskwidth) {
 		width: 600px;
@@ -696,7 +697,10 @@ _________________________________*/
 			family: $font-heading;
 			size: 18px;
 		} 
-		margin: 30px 0 0px 0;
+		margin: 0;
+		@media screen and (min-width: $tabwidth) {
+			margin: 30px 0 0 0;
+		}
 	}
 	& p {
 		font: {
@@ -1737,6 +1741,7 @@ h2.pricing-title {
 }
 .faq-bone {
 	margin: 10px auto;
+	padding: 17px 0px 0px 0px;
 	background:{
 		image: url(images/faq.png);
 		repeat: no-repeat;
@@ -1880,7 +1885,7 @@ h2.pricing-title {
 	width: 150px;
 	height: 60px;
 	text-align: center;	
-	padding: 15px 0px 0px 0px;
+	padding: 17px 0px 0px 0px;
 	font: {
 		family: $font-heading;
 		size: 18px;

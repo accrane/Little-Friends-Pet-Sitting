@@ -19,6 +19,7 @@ jQuery(document).ready(function ($) {
 	// front page slider 
 	$('.flexslider').flexslider({
 		animation: "slide",
+		smoothHeight: true
 	}); // end register flexslider
 	
 	// // Colorbox

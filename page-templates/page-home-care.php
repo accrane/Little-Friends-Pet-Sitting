@@ -213,7 +213,7 @@ $parentLink = get_page_link($pid);
 			<?php endif; ?>
 
 
-				<?php echo $shortDesc; ?>
+				<?php echo $priceNotes; ?>
 
 				</div><!-- content area -->
 

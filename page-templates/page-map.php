@@ -59,7 +59,7 @@ $gaston = get_bloginfo('url') . '/'. 'gastonia-belmont-mount-holly-mt-island/';
 			<?php $action = get_bloginfo('url') . '/your-location/'; ?>
 			<form action="<?php echo $action ?>" method="get">
 			  <input class="zipsearch" type="text" name="location" placeholder="<?php echo esc_attr_x( 'Enter your zip code', 'placeholder' ) ?>" >
-			  <input class="zipsubmit" type="submit" value="Submit">
+			  <input class="submit" type="submit" value="Submit">
 			</form>
 
 	</div><!-- widget-area -->

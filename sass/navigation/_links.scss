@@ -18,16 +18,18 @@ a {
 		outline: 0;
 	}
 }
-.more {
-	width: 173px;
-	height: 53px;
+.more, input.submit {
+	width: 80px;
+	height: 37px;
 	@include transition(all 0.2s ease);
+	background: none;
 	background: {
-		image: url(images/more.png);
 		repeat: no-repeat;
+		size: cover;
+		color: none;
 	}
 	& a {
-		width: 173px;
+		width: 119px;
 		height: 53px;
 		display: block;
 		text-indent: -9000px;
@@ -35,6 +37,28 @@ a {
 	}
 	&:hover {
 		transform: rotate(5deg);
+	}
+	@media screen and (min-width: $tabwidth) {
+		width: 119px;
+		height: 53px;
+		background-size: contain;
+	}
+}
+.more {
+	background-image: url(images/more.png);
+}
+input.submit {
+	
+	background-image: url(images/submit.png);
+	border: none;
+	box-shadow: none;
+	text-shadow: none;
+	text-indent: -9000px;
+	padding: 0;
+	margin: -10px 0 0 10px;
+	&:hover {
+		background-color: none;
+		box-shadow: none;
 	}
 }
 .more-bowl {

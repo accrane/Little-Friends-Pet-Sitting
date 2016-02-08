@@ -156,7 +156,7 @@ $parentLink = get_page_link($pid);
 				<?php endwhile; ?>
 			<?php endif; ?>
 
-			<?php echo $shortDesc; ?>
+			<?php echo $priceNotes; ?>
 
 
 				</div><!-- content area -->

@@ -34,7 +34,7 @@ get_header(); ?>
 			<?php $action = get_bloginfo('url') . '/your-location/'; ?>
 			<form action="<?php echo $action ?>" method="get">
 			  <input class="zipsearch" type="text" name="location" placeholder="<?php echo esc_attr_x( 'Enter your zip code', 'placeholder' ) ?>" >
-			  <input class="zipsubmit" type="submit" value="Submit">
+			  <input class="submit" type="submit" value="Submit">
 			</form>
 		</div><!-- zip search -->
 
@@ -55,6 +55,14 @@ get_header(); ?>
 					<img src="<?php bloginfo('template_url'); ?>/css/images/map-small.png" />
 				</a>
 			</div><!-- home map -->
+
+
+			<!--<div class="box-green new-client wow zoomIn pulse animated">
+				<div class="btn-bird"></div>
+				<a href="<?php echo get_bloginfo('url') . 'join-our-team'; ?>">
+					<h2>Join Our Team</h2>
+				</a>
+			</div> box green -->
 
 			<div class="divider">
 			</div><!-- divider -->

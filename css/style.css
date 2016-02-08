@@ -2785,23 +2785,45 @@ a {
   a:hover, a:active {
     outline: 0; }
 
-.more {
-  width: 173px;
-  height: 53px;
+.more, input.submit {
+  width: 80px;
+  height: 37px;
   -webkit-transition: all 0.2s ease;
   -moz-transition: all 0.2s ease;
   -ms-transition: all 0.2s ease;
   -o-transition: all 0.2s ease;
   transition: all 0.2s ease;
-  background-image: url(images/more.png);
-  background-repeat: no-repeat; }
-  .more a {
-    width: 173px;
+  background: none;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: none; }
+  .more a, input.submit a {
+    width: 119px;
     height: 53px;
     display: block;
     text-indent: -9000px; }
-  .more:hover {
+  .more:hover, input.submit:hover {
     transform: rotate(5deg); }
+  @media screen and (min-width: 600px) {
+    .more, input.submit {
+      width: 119px;
+      height: 53px;
+      background-size: contain; } }
+
+.more {
+  background-image: url(images/more.png); }
+
+input.submit {
+  background-image: url(images/submit.png);
+  border: none;
+  box-shadow: none;
+  text-shadow: none;
+  text-indent: -9000px;
+  padding: 0;
+  margin: -10px 0 0 10px; }
+  input.submit:hover {
+    background-color: none;
+    box-shadow: none; }
 
 .more-bowl {
   width: 151px;
@@ -3185,18 +3207,19 @@ button.menu-toggle {
   width: 50%; }
 
 .friends {
-  width: 150px;
-  height: 68px;
-  display: none;
+  width: 80px;
+  height: 36px;
   background-image: url(images/friends.png);
   background-repeat: no-repeat;
   background-size: cover;
   position: absolute;
-  top: -80px;
+  top: -30px;
   left: 20px;
   z-index: 1002; }
   @media screen and (min-width: 600px) {
     .friends {
+      width: 150px;
+      height: 68px;
       top: -55px;
       left: 10px;
       display: block; } }
@@ -3804,10 +3827,12 @@ html[xmlns] .flexslider .slides {
   width: 100%;
   float: left;
   line-height: 1;
+  margin-bottom: 10px;
   font-family: "PT Sans Narrow", sans-serif;
   font-size: 16px; }
   @media screen and (min-width: 600px) {
     .subheader {
+      margin-bottom: 0;
       font-size: 16px; } }
   @media screen and (min-width: 1160px) {
     .subheader {
@@ -3821,6 +3846,9 @@ html[xmlns] .flexslider .slides {
   margin-top: -20px;
   font-family: "Margarine", cursive;
   font-size: 12px; }
+  .banner-title h2 {
+    color: #b80808;
+    line-height: 1; }
   @media screen and (min-width: 600px) {
     .banner-title {
       font-size: 20px; } }
@@ -3830,12 +3858,13 @@ html[xmlns] .flexslider .slides {
 
 .banner-link {
   position: absolute;
-  bottom: 50px;
-  left: 70px;
-  display: none; }
+  bottom: 15px;
+  right: 20px; }
   @media screen and (min-width: 600px) {
     .banner-link {
-      display: block; } }
+      display: block;
+      bottom: 50px;
+      left: 70px; } }
 
 .flexslider .slides {
   zoom: 1; }
@@ -4680,6 +4709,7 @@ _________________________________*/
   height: 62px;
   text-indent: -9000px;
   position: absolute;
+  display: none;
   top: -42px;
   background-image: url(images/friends-group.png);
   background-repeat: no-repeat;
@@ -4688,7 +4718,8 @@ _________________________________*/
     .friends-group {
       position: absolute;
       left: 0px;
-      z-index: 10000; } }
+      z-index: 10000;
+      display: block; } }
   @media screen and (min-width: 1160px) {
     .friends-group {
       width: 600px;
@@ -4710,7 +4741,10 @@ _________________________________*/
   color: #000;
   font-family: "Margarine", cursive;
   font-size: 18px;
-  margin: 30px 0 0px 0; }
+  margin: 0; }
+  @media screen and (min-width: 600px) {
+    .find-your-location h3 {
+      margin: 30px 0 0 0; } }
 .find-your-location p {
   font-family: "PT Sans Narrow", sans-serif;
   font-size: 18px;
@@ -5527,6 +5561,7 @@ h2.pricing-title {
 
 .faq-bone {
   margin: 10px auto;
+  padding: 17px 0px 0px 0px;
   background-image: url(images/faq.png);
   background-repeat: no-repeat;
   background-position: 0 0; }
@@ -5657,7 +5692,7 @@ h2.pricing-title {
   width: 150px;
   height: 60px;
   text-align: center;
-  padding: 15px 0px 0px 0px;
+  padding: 17px 0px 0px 0px;
   font-family: "Margarine", cursive;
   font-size: 18px; }
 

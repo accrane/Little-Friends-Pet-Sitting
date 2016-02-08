@@ -70,6 +70,7 @@ $parentLink = get_page_link($pid);
 					//$link = sanitize_title_with_dashes($title);
 
                     $santiTitle = sanitize_title_with_dashes($title);
+                    $priceNotes = get_field('pricing_notes');
                  
                     if($santiTitle == 'errand-service') {
                     	$link = $parentLink . 'services-pricing/home-care-errand-services/#' . $santiTitle;
@@ -113,7 +114,7 @@ $parentLink = get_page_link($pid);
 					<?php endwhile; ?>
 				<?php endif; ?>
 
-				<?php echo $shortDesc; ?>
+				<?php echo $priceNotes; ?>
 
 				
 
