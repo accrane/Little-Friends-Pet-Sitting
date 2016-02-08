@@ -2542,6 +2542,13 @@ h1 {
 .entry-title {
   font-family: "Margarine", cursive; }
 
+.anchor:before {
+  display: block;
+  content: " ";
+  margin-top: -80px;
+  height: 80px;
+  visibility: hidden; }
+
 /*--------------------------------------------------------------
 # Typography
 --------------------------------------------------------------*/

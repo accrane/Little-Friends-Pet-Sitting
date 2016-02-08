@@ -183,10 +183,8 @@ $parentLink = get_page_link($pid);
 
 			?>
 						<div class="content-area blocks">
-							<a name="<?php echo $link; ?>"></a>
-							
 							<div class="entry-content">
-								<h2><?php the_title(); ?></h2>
+								<h2  id="<?php echo $link; ?>" class="anchor"><?php the_title(); ?></h2>
 								<?php the_field('short-description'); ?>
 							</div><!-- entry content -->
 					

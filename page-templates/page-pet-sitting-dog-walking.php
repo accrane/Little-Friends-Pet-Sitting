@@ -125,11 +125,10 @@ $parentLink = get_page_link($pid);
 					$link = sanitize_title_with_dashes($title);
 
 			?>
-				<a name=""></a>
-					<div class="content-area blocks">
-						<a name="<?php echo $link; ?>"></a>
+				
+					<div class="content-area ">
 						<div class="entry-content">
-							<h2><?php the_title(); ?></h2>
+							<h2 id="<?php echo $link; ?>" class="anchor"><?php the_title(); ?></h2>
 							<?php //the_field('short-description'); ?>
 							<?php the_content(); ?>
 						</div><!-- entry content -->
@@ -161,7 +160,7 @@ $parentLink = get_page_link($pid);
 
 				</div><!-- content area -->
 
-				<div class="service-side-area blocks">
+				<div class="service-side-area ">
 					<!-- <img src="<?php echo $thumb; ?>" alt="<?php echo $alt; ?>" title="<?php echo $title; ?>" /> -->
 					<?php 
 					if ( has_post_thumbnail() ) { ?>
