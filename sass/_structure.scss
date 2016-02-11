@@ -850,12 +850,12 @@ input.zipsubmit {
 	display: none;
 	@media screen and (min-width: $tabwidth) {
 		width: 30%;
-		float: right;
+		float: left;
 		display: block;
 	}
 	@media screen and (min-width: $deskwidth) {
 		width: 20%;
-		margin: 0 50px 0 0;
+		margin: 0 50px 0 50px;
 	}
 }
 .divider, .divider-location {
@@ -871,21 +871,25 @@ input.zipsubmit {
 	width: 87px;
 	height: 230px;
 	float:  left;
-	margin-left: 40px;
+	margin-left: 20px;
 	
 
 	@media screen and (min-width: $midwidth) {
-		display: block
+		display: block;
+		margin-left: 20px;
+	}
+	@media screen and (min-width: $deskwidth) {
+		margin-left: 0px;
 	}
 }
 .home-home-news {
 	width: 100%;
 	@media screen and (min-width: $tabwidth) {
 		width: 55%;
-		float: left;
+		float: right;
 	}
 	@media screen and (min-width: $deskwidth) {
-
+		margin-right: 50px;
 	}
 }
 .location-main-news {

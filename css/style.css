@@ -4874,12 +4874,12 @@ input.zipsubmit {
   @media screen and (min-width: 600px) {
     .home-map {
       width: 30%;
-      float: right;
+      float: left;
       display: block; } }
   @media screen and (min-width: 1160px) {
     .home-map {
       width: 20%;
-      margin: 0 50px 0 0; } }
+      margin: 0 50px 0 50px; } }
 
 .divider, .divider-location {
   display: none;
@@ -4892,17 +4892,24 @@ input.zipsubmit {
   width: 87px;
   height: 230px;
   float: left;
-  margin-left: 40px; }
+  margin-left: 20px; }
   @media screen and (min-width: 830px) {
     .divider {
-      display: block; } }
+      display: block;
+      margin-left: 20px; } }
+  @media screen and (min-width: 1160px) {
+    .divider {
+      margin-left: 0px; } }
 
 .home-home-news {
   width: 100%; }
   @media screen and (min-width: 600px) {
     .home-home-news {
       width: 55%;
-      float: left; } }
+      float: right; } }
+  @media screen and (min-width: 1160px) {
+    .home-home-news {
+      margin-right: 50px; } }
 
 .location-main-news {
   width: 90%;

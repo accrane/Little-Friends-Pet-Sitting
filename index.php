@@ -50,9 +50,12 @@ get_header(); ?>
 
 			<div class="clear"></div>
 
-			<div class="home-home-news">
-				<?php get_template_part('template-parts/home-news'); ?>
-			</div><!-- home-home-news -->
+			<div class="home-map">
+				<a href="<?php bloginfo('url'); ?>/locations">
+					<img src="<?php bloginfo('template_url'); ?>/css/images/map-small.png" />
+				</a>
+			</div><!-- home map -->
+
 
 			<!--<div class="box-green new-client wow zoomIn pulse animated">
 				<div class="btn-bird"></div>
@@ -64,13 +67,9 @@ get_header(); ?>
 			<div class="divider">
 			</div><!-- divider -->
 
-			<div class="home-map">
-				<a href="<?php bloginfo('url'); ?>/locations">
-					<img src="<?php bloginfo('template_url'); ?>/css/images/map-small.png" />
-				</a>
-			</div><!-- home map -->
-
-			
+			<div class="home-home-news">
+				<?php get_template_part('template-parts/home-news'); ?>
+			</div><!-- home-home-news -->
 		</div><!-- home content -->
 	</div><!-- wrapper -->
 
