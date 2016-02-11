@@ -3036,19 +3036,7 @@ h2.pricing-title {
 	
 	
 }
-input.gform_next_button {
-	background-color: $color-red ;
-	color: #fff ;
-	box-shadow: none ;
-	padding: 20px 30px;
-	font-size: 20px;
-	@include transition(all ease .3s);
 
-	&:hover {
-		box-shadow: none ;
-		transform: scale(1.1);
-	}
-}
 .maparea {
 
 	@media screen and (min-width: $midwidth) {

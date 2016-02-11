@@ -20,12 +20,18 @@ a {
 }
 .more, 
 input.submit,
-.gform_footer input.button
+.gform_footer input.button,
+input.gform_previous_button,
+input.gform_next_button,
+input#gform_submit_button_2
  {
 	width: 80px;
 	height: 37px;
 	@include transition(all 0.2s ease);
 	background: none;
+	text-indent: -9000px;
+	border-width: 0;
+	box-shadow:  none;
 	background: {
 		repeat: no-repeat;
 		size: cover;
@@ -40,6 +46,7 @@ input.submit,
 	}
 	&:hover {
 		transform: rotate(5deg);
+		box-shadow:  none;
 	}
 	@media screen and (min-width: $tabwidth) {
 		width: 119px;
@@ -51,10 +58,22 @@ input.submit,
 	background-image: url(images/more.png);
 }
 input.submit,
-.gform_footer input.button
+.gform_footer input.button,
+input#gform_submit_button_2
  {
-	
 	background-image: url(images/submit.png);
+}
+input.gform_next_button {
+	background-image: url(images/next.png);
+}
+input.gform_previous_button {
+	background-image: url(images/previous.png);
+}
+input.submit,
+.gform_footer input.button,
+input.gform_previous_button,
+input.gform_next_button
+{
 	border: none;
 	box-shadow: none;
 	text-shadow: none;
@@ -66,6 +85,8 @@ input.submit,
 		box-shadow: none;
 	}
 }
+
+
 .more-bowl {
 	width: 151px;
 	height: 68px;

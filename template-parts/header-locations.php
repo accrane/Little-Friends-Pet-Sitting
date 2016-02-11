@@ -201,8 +201,12 @@ if( is_single() ) {
             get_template_part('template-parts/locations-main');
          } else { ?>
           <div class="nav-bar-image">
-            <?php if ( function_exists('yoast_breadcrumb') ) 
-            {yoast_breadcrumb('<p class="breadcrumbs">','</p>');} ?>
+            <?php if ( function_exists('yoast_breadcrumb') ) {
+              if(!is_singular( 'sitters' ) ) {
+                yoast_breadcrumb('<p class="breadcrumbs">','</p>');
+              }
+
+            } ?>
           </div><!-- nav bar image -->
         <?php } ?>
       </div><!-- nav bar -->

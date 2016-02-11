@@ -2794,7 +2794,10 @@ a {
 
 .more,
 input.submit,
-.gform_footer input.button {
+.gform_footer input.button,
+input.gform_previous_button,
+input.gform_next_button,
+input#gform_submit_button_2 {
   width: 80px;
   height: 37px;
   -webkit-transition: all 0.2s ease;
@@ -2803,24 +2806,37 @@ input.submit,
   -o-transition: all 0.2s ease;
   transition: all 0.2s ease;
   background: none;
+  text-indent: -9000px;
+  border-width: 0;
+  box-shadow: none;
   background-repeat: no-repeat;
   background-size: cover;
   background-color: none; }
   .more a,
   input.submit a,
-  .gform_footer input.button a {
+  .gform_footer input.button a,
+  input.gform_previous_button a,
+  input.gform_next_button a,
+  input#gform_submit_button_2 a {
     width: 119px;
     height: 53px;
     display: block;
     text-indent: -9000px; }
   .more:hover,
   input.submit:hover,
-  .gform_footer input.button:hover {
-    transform: rotate(5deg); }
+  .gform_footer input.button:hover,
+  input.gform_previous_button:hover,
+  input.gform_next_button:hover,
+  input#gform_submit_button_2:hover {
+    transform: rotate(5deg);
+    box-shadow: none; }
   @media screen and (min-width: 600px) {
     .more,
     input.submit,
-    .gform_footer input.button {
+    .gform_footer input.button,
+    input.gform_previous_button,
+    input.gform_next_button,
+    input#gform_submit_button_2 {
       width: 119px;
       height: 53px;
       background-size: contain; } }
@@ -2829,8 +2845,20 @@ input.submit,
   background-image: url(images/more.png); }
 
 input.submit,
-.gform_footer input.button {
-  background-image: url(images/submit.png);
+.gform_footer input.button,
+input#gform_submit_button_2 {
+  background-image: url(images/submit.png); }
+
+input.gform_next_button {
+  background-image: url(images/next.png); }
+
+input.gform_previous_button {
+  background-image: url(images/previous.png); }
+
+input.submit,
+.gform_footer input.button,
+input.gform_previous_button,
+input.gform_next_button {
   border: none;
   box-shadow: none;
   text-shadow: none;
@@ -2838,7 +2866,9 @@ input.submit,
   padding: 0;
   margin: -10px 0 0 10px; }
   input.submit:hover,
-  .gform_footer input.button:hover {
+  .gform_footer input.button:hover,
+  input.gform_previous_button:hover,
+  input.gform_next_button:hover {
     background-color: none;
     box-shadow: none; }
 
@@ -3232,7 +3262,7 @@ button.menu-toggle {
   position: absolute;
   top: -30px;
   left: 20px;
-  z-index: 1002; }
+  z-index: 1000; }
   @media screen and (min-width: 600px) {
     .friends {
       width: 150px;
@@ -6576,21 +6606,6 @@ h2.pricing-title {
   width: 82px;
   background-position: -336px -0px;
   position: relative; }
-
-input.gform_next_button {
-  background-color: #b80808;
-  color: #fff;
-  box-shadow: none;
-  padding: 20px 30px;
-  font-size: 20px;
-  -webkit-transition: all ease 0.3s;
-  -moz-transition: all ease 0.3s;
-  -ms-transition: all ease 0.3s;
-  -o-transition: all ease 0.3s;
-  transition: all ease 0.3s; }
-  input.gform_next_button:hover {
-    box-shadow: none;
-    transform: scale(1.1); }
 
 @media screen and (min-width: 830px) {
   .maparea {

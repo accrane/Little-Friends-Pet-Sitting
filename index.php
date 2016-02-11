@@ -70,6 +70,7 @@ get_header(); ?>
 			<div class="home-home-news">
 				<?php get_template_part('template-parts/home-news'); ?>
 			</div><!-- home-home-news -->
+			
 		</div><!-- home content -->
 	</div><!-- wrapper -->
 
