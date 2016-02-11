@@ -44,7 +44,10 @@ $phone = get_field('phone_number', 'option')
       <div class="nav-bar">
 
 
-        <?php if( $location != 'mainlocation' ) { ?>
+        <?php 
+        // Hide leash if you're searching your location
+        //wp_reset_query();
+        if(  !is_page(2933) ) { ?>
           <div class="leash"></div>
         <?php  } ?>
 

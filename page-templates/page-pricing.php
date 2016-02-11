@@ -125,7 +125,7 @@ $parentLink = get_page_link($pid);
 
 			<div class="widget-area">
 
-				<div class="side-box">
+				<div class="side-box sidebox-red">
 					<div class="side-box-inner-link">
 						<a href="#late-booking" class="inline">
 							<h3>Late Booking Fee and Holidays</h3>
@@ -141,8 +141,8 @@ $parentLink = get_page_link($pid);
 
 
 				<?php if( have_rows('pricing_reasons', 'option') ): ?>
-				<div class="side-box">
-					<div class="side-box-inner">
+				<div class="side-box sidebox-green">
+					<div class="side-box-inner ">
 						<h3>Why choose Little Friends Pet Sitting & Dog Walking?</h3>
 						<ul>
 							<?php while( have_rows('pricing_reasons', 'option') ): the_row(); 

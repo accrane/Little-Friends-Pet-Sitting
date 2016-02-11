@@ -2539,7 +2539,7 @@ h1 {
       .entry-header h2 {
         font-size: 26px; } }
 
-.entry-title {
+.entry-title, .widget-title {
   font-family: "Margarine", cursive; }
 
 .anchor:before {
@@ -2792,7 +2792,9 @@ a {
   a:hover, a:active {
     outline: 0; }
 
-.more, input.submit {
+.more,
+input.submit,
+.gform_footer input.button {
   width: 80px;
   height: 37px;
   -webkit-transition: all 0.2s ease;
@@ -2804,15 +2806,21 @@ a {
   background-repeat: no-repeat;
   background-size: cover;
   background-color: none; }
-  .more a, input.submit a {
+  .more a,
+  input.submit a,
+  .gform_footer input.button a {
     width: 119px;
     height: 53px;
     display: block;
     text-indent: -9000px; }
-  .more:hover, input.submit:hover {
+  .more:hover,
+  input.submit:hover,
+  .gform_footer input.button:hover {
     transform: rotate(5deg); }
   @media screen and (min-width: 600px) {
-    .more, input.submit {
+    .more,
+    input.submit,
+    .gform_footer input.button {
       width: 119px;
       height: 53px;
       background-size: contain; } }
@@ -2820,7 +2828,8 @@ a {
 .more {
   background-image: url(images/more.png); }
 
-input.submit {
+input.submit,
+.gform_footer input.button {
   background-image: url(images/submit.png);
   border: none;
   box-shadow: none;
@@ -2828,7 +2837,8 @@ input.submit {
   text-indent: -9000px;
   padding: 0;
   margin: -10px 0 0 10px; }
-  input.submit:hover {
+  input.submit:hover,
+  .gform_footer input.button:hover {
     background-color: none;
     box-shadow: none; }
 
@@ -2926,7 +2936,7 @@ p.breadcrumbs {
       left: 80px; } }
 
 .main-navigation {
-  width: 100%;
+  width: 90%;
   z-index: 1000;
   position: absolute;
   top: -205px;
@@ -3772,6 +3782,12 @@ button.menu-toggle {
       background-color: rgba(130, 119, 183, 0);
       border-width: 0px; } }
 
+.home-slider {
+  display: none; }
+  @media screen and (min-width: 600px) {
+    .home-slider {
+      display: block; } }
+
 .slider-inner {
   background-color: white;
   padding: 20px 20px 20px;
@@ -4279,6 +4295,22 @@ h1 {
     .contact-area {
       /*width: 1200px;*/ } }
 
+.big-map-area {
+  width: 100%;
+  margin: 0px auto;
+  padding-bottom: 10px;
+  text-align: left;
+  overflow: hidden; }
+  @media screen and (min-width: 600px) {
+    .big-map-area {
+      width: 60%;
+      float: left;
+      margin: 0;
+      padding-bottom: 50px; } }
+  @media screen and (min-width: 1160px) {
+    .big-map-area {
+      /*width: 1200px;*/ } }
+
 .widget-area {
   width: 100%;
   margin: 0px auto;
@@ -4291,6 +4323,8 @@ h1 {
   @media screen and (min-width: 1160px) {
     .widget-area {
       margin: 50px 0 100px 0; } }
+  .widget-area ul {
+    margin: 0 0 30px; }
 
 .map-side {
   width: 100%;
@@ -4299,7 +4333,7 @@ h1 {
   @media screen and (min-width: 600px) {
     .map-side {
       width: 30%;
-      float: right;
+      float: left;
       margin: 40px 0 50px 0; } }
   @media screen and (min-width: 1160px) {
     .map-side {
@@ -4436,7 +4470,7 @@ h1 {
 #masthead-home {
   padding: 50px 0 0 0;
   clear: both;
-  height: 460px; }
+  height: 130px; }
   @media screen and (min-width: 600px) {
     #masthead-home {
       padding: 50px 0 0 0;
@@ -4548,7 +4582,7 @@ _________________________________*/
       display: inline-block;
       list-style: none; }
       .site-info ul li a {
-        padding: 3px 5px;
+        padding: 3px 0px 3px 5px;
         color: #000; }
         .site-info ul li a:hover {
           color: #b80808; }
@@ -4840,7 +4874,7 @@ input.zipsubmit {
   @media screen and (min-width: 600px) {
     .home-map {
       width: 30%;
-      float: left;
+      float: right;
       display: block; } }
   @media screen and (min-width: 1160px) {
     .home-map {
@@ -4858,7 +4892,7 @@ input.zipsubmit {
   width: 87px;
   height: 230px;
   float: left;
-  margin-left: 20px; }
+  margin-left: 40px; }
   @media screen and (min-width: 830px) {
     .divider {
       display: block; } }
@@ -4868,7 +4902,7 @@ input.zipsubmit {
   @media screen and (min-width: 600px) {
     .home-home-news {
       width: 55%;
-      float: right; } }
+      float: left; } }
 
 .location-main-news {
   width: 90%;
@@ -5492,19 +5526,24 @@ h2.pricing-title {
   overflow: hidden;
   margin-bottom: 30px; }
 
+.sidebox-green {
+  background-color: #86ae35; }
+
+.sidebox-red {
+  background-color: #b80808; }
+
 .side-box {
   width: 90%;
   border: 2px solid #000;
   border-radius: 20px;
   padding: 5%;
-  margin-bottom: 15px;
-  background-color: #86AE35; }
+  margin-bottom: 15px; }
 
 .side-box-inner {
   width: 100%;
   border-radius: 20px;
   padding: 5%;
-  background-color: #C3D79A; }
+  background-color: rgba(255, 255, 255, 0.4); }
   .side-box-inner h3 {
     color: #000;
     font-family: "Margarine", cursive;
@@ -5522,7 +5561,7 @@ h2.pricing-title {
 .side-box-inner-link {
   width: 100%;
   border-radius: 20px;
-  background-color: #C3D79A;
+  background-color: rgba(255, 255, 255, 0.8);
   text-align: center; }
   .side-box-inner-link h3 {
     color: #000;
@@ -5766,6 +5805,7 @@ h2.pricing-title {
       .the-sitters-list ul li a {
         padding: 3px 5px;
         color: #fff;
+        display: inline-block;
         -webkit-transition: all 0.2s ease;
         -moz-transition: all 0.2s ease;
         -ms-transition: all 0.2s ease;
@@ -6544,5 +6584,55 @@ input.gform_next_button {
   input.gform_next_button:hover {
     box-shadow: none;
     transform: scale(1.1); }
+
+@media screen and (min-width: 830px) {
+  .maparea {
+    display: block; } }
+@media screen and (min-width: 1160px) {
+  .maparea {
+    width: 500px;
+    height: 689px;
+    position: relative; } }
+
+.maparea-img {
+  display: none; }
+  @media screen and (min-width: 830px) {
+    .maparea-img {
+      display: block; } }
+
+.js-show-city {
+  display: block; }
+  @media screen and (min-width: 830px) {
+    .js-show-city {
+      display: block; } }
+
+.js-hide-city {
+  display: none; }
+
+#js-lakenorman,
+#js-northeast,
+#js-southeast-charlotte,
+#js-southcharlotte,
+#js-south-carolina,
+#js-gaston,
+#js-charlotte {
+  width: 100%;
+  margin: 0 0 20px 0;
+  z-index: 10000;
+  color: #b80808;
+  font-family: "Margarine", cursive;
+  font-size: 18px; }
+  @media screen and (min-width: 830px) {
+    #js-lakenorman,
+    #js-northeast,
+    #js-southeast-charlotte,
+    #js-southcharlotte,
+    #js-south-carolina,
+    #js-gaston,
+    #js-charlotte {
+      display: none;
+      width: auto;
+      position: absolute;
+      color: #fff; } }
 
 /*# sourceMappingURL=style.css.map */

@@ -18,7 +18,10 @@ a {
 		outline: 0;
 	}
 }
-.more, input.submit {
+.more, 
+input.submit,
+.gform_footer input.button
+ {
 	width: 80px;
 	height: 37px;
 	@include transition(all 0.2s ease);
@@ -47,7 +50,9 @@ a {
 .more {
 	background-image: url(images/more.png);
 }
-input.submit {
+input.submit,
+.gform_footer input.button
+ {
 	
 	background-image: url(images/submit.png);
 	border: none;

@@ -49,6 +49,30 @@ get_header(); ?>
 			<div class="card-pic"><img src="<?php echo $thumb ?>" /></div>
 
 			
+			<?php if( $hometown != '' ) : ?>
+				<div class="hometown">
+					<span class="pets-title">Hometown:</span><br>
+					<span class="pets-sum"><?php echo $hometown; ?></span>
+				</div><!-- hometown -->
+			<?php endif; ?>
+			<?php if( $pets != '' ) : ?>
+				<div class="pets">
+					<span class="pets-title">Pets:</span><br>
+					<span class="pets-sum"><?php echo $pets ?></span>
+				</div><!-- hometown -->
+			<?php endif; ?>
+			<?php if( $funFacts != '' ) : ?>
+				<div class="funfacts">
+					<span class="pets-title">Fun Facts:</span><br>
+					<span class="pets-sum"><?php echo $funFacts ?></span>
+				</div><!-- hometown -->
+			<?php endif; ?>
+			<?php if( $bio != '' ) : ?>
+				<div class="other">
+					<span class="pets-title">Bio:</span><br>
+					<span class="pets-sum"><?php echo $bio ?></span>
+				</div><!-- hometown -->
+			<?php endif; ?>
 			<?php if( $petBio != '' ) : ?>
 				<div class="other">
 					<span class="pets-sum"><?php echo $petBio ?></span>
@@ -73,6 +97,6 @@ get_header(); ?>
 		</main><!-- #main -->
 	</div><!-- #primary -->
 
-<?php get_sidebar(); ?>
+<?php //get_sidebar(); ?>
 </div><!-- wrapper -->
 <?php get_footer(); ?>

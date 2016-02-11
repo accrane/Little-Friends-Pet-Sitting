@@ -30,7 +30,9 @@ if( is_single() ) {
   // Term ID
   $ID = $region[0]->term_id;
   $cities = get_field('cities', 'location_' . $ID);
+  $zips = get_field('zip_codes', 'location_' . $ID);
   $num = count($cities);
+  $zipsnum = count($zips);
   $i = 0;
   $link = get_page_link($pageID);
 
@@ -60,7 +62,9 @@ if( is_single() ) {
   $ID = $region[0]->term_id;
    // Count cities
   $cities = get_field('cities', 'location_' . $ID);
+  $zips = get_field('zip_codes', 'location_' . $ID);
   $num = count($cities);
+   $zipsnum = count($zips);
   // Page link
   $link = get_page_link($pid);
   // echo '<pre>';
@@ -115,4 +119,23 @@ $bbb = get_field('bbb', 'option');
           endif;
           ?>
       </p>
+
+      <?php // Get our cities
+      //reset counter
+      $i=0;
+          if( have_rows('zip_codes','location_' . $ID) ) :
+            echo 'Serving the following zip codes: ';
+            while( have_rows('zip_codes','location_' . $ID) ) : the_row(); $i++;
+
+              $cName = get_sub_field('zip_code');
+              if( $i < $zipsnum ) {
+                echo $cName . ', ';
+              }else{
+                echo $cName;
+              }
+              
+               
+            endwhile;
+          endif;
+          ?>
 </div><!-- city stuff -->

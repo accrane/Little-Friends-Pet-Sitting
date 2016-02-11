@@ -51,7 +51,7 @@
                 // The Loop
                  if ( $the_query->have_posts()) : ?>
 
-                <div class="flexslider slider-bg">
+                <div class="flexslider slider-bg home-slider">
                   
                         <ul class="slides">
                         <?php while ( $the_query->have_posts() ) : ?>
