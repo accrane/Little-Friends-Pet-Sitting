@@ -50,7 +50,7 @@
 
           <div id="meet-title">
               <h3>
-                <a href="<?php echo get_permalink() . '?location=' . $urlParam;?>">
+                <a href="<?php echo get_permalink() . '?location=' . $urlParam . '&featured=Y';?>">
                   Meet <?php the_title(); ?>
                 </a>
               </h3>

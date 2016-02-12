@@ -7,7 +7,12 @@
  * @package ACStarter
  */
 
-get_header(); ?>
+get_header(); 
+
+// Are we coming from the featured Sitter
+$isFeat = $_GET['featured'];
+
+?>
 <div class="wrapper">
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
@@ -37,7 +42,7 @@ get_header(); ?>
 				$sitterLongBio = get_field('sitter_long_bio');
 
 				
-
+				//echo $isFeat;
 				
 
 					?>
@@ -45,39 +50,42 @@ get_header(); ?>
 				<h1><?php the_title(); ?></h1>
 			</div>
 				
+			<?php if( $isFeat !== 'Y' ) : ?>
+				<div class="card-pic"><img src="<?php echo $thumb ?>" /></div>
 
-			<div class="card-pic"><img src="<?php echo $thumb ?>" /></div>
+				
+				<?php if( $hometown != '' ) : ?>
+					<div class="hometown">
+						<span class="pets-title">Hometown:</span><br>
+						<span class="pets-sum"><?php echo $hometown; ?></span>
+					</div><!-- hometown -->
+				<?php endif; ?>
+				<?php if( $pets != '' ) : ?>
+					<div class="pets">
+						<span class="pets-title">Pets:</span><br>
+						<span class="pets-sum"><?php echo $pets ?></span>
+					</div><!-- hometown -->
+				<?php endif; ?>
+				<?php if( $funFacts != '' ) : ?>
+					<div class="funfacts">
+						<span class="pets-title">Fun Facts:</span><br>
+						<span class="pets-sum"><?php echo $funFacts ?></span>
+					</div><!-- hometown -->
+				<?php endif; ?>
+				<?php if( $bio != '' ) : ?>
+					<div class="other">
+						<span class="pets-title">Bio:</span><br>
+						<span class="pets-sum"><?php echo $bio ?></span>
+					</div><!-- hometown -->
+				<?php endif; ?>
+				<?php if( $petBio != '' ) : ?>
+					<div class="other">
+						<span class="pets-sum"><?php echo $petBio ?></span>
+					</div><!-- hometown -->
+				<?php endif; ?>
 
-			
-			<?php if( $hometown != '' ) : ?>
-				<div class="hometown">
-					<span class="pets-title">Hometown:</span><br>
-					<span class="pets-sum"><?php echo $hometown; ?></span>
-				</div><!-- hometown -->
 			<?php endif; ?>
-			<?php if( $pets != '' ) : ?>
-				<div class="pets">
-					<span class="pets-title">Pets:</span><br>
-					<span class="pets-sum"><?php echo $pets ?></span>
-				</div><!-- hometown -->
-			<?php endif; ?>
-			<?php if( $funFacts != '' ) : ?>
-				<div class="funfacts">
-					<span class="pets-title">Fun Facts:</span><br>
-					<span class="pets-sum"><?php echo $funFacts ?></span>
-				</div><!-- hometown -->
-			<?php endif; ?>
-			<?php if( $bio != '' ) : ?>
-				<div class="other">
-					<span class="pets-title">Bio:</span><br>
-					<span class="pets-sum"><?php echo $bio ?></span>
-				</div><!-- hometown -->
-			<?php endif; ?>
-			<?php if( $petBio != '' ) : ?>
-				<div class="other">
-					<span class="pets-sum"><?php echo $petBio ?></span>
-				</div><!-- hometown -->
-			<?php endif; ?>
+
 			<?php if( $sitterLongBio != '' ) : ?>
 				<div class="other">
 					<span class="pets-sum"><?php echo $sitterLongBio ?></span>
