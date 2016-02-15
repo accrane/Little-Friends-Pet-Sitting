@@ -233,6 +233,36 @@ function my_location_function() {
 }
 add_action( 'init', 'my_location_function' );
 
+/*-------------------------------------
+  SSL for Join our Team Form
+---------------------------------------*/
+function yst_ssl_template_redirect() {
+  if ( is_page( array(3113,2688,2595,2572,2541,2527,17) ) && ! is_ssl() ) {
+    if ( 0 === strpos($_SERVER['REQUEST_URI'], 'http') ) {
+      wp_redirect(preg_replace('|^http://|', 'https://', $_SERVER['REQUEST_URI']), 301 );
+      exit();
+    } else {
+      wp_redirect('https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'], 301 );
+      exit();
+    }
+  } else if ( !is_page( array(3113,2688,2595,2572,2541,2527,17) ) && is_ssl() && !is_admin() ) {
+    if ( 0 === strpos($_SERVER['REQUEST_URI'], 'http') ) {
+      wp_redirect(preg_replace('|^https://|', 'http://', $_SERVER['REQUEST_URI']), 301 );
+      exit();
+    } else {
+      wp_redirect('http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'], 301 );
+      exit();
+    }
+  }
+}
+add_action( 'template_redirect', 'yst_ssl_template_redirect', 1 );
 
+
+// function yst_checkout_page_ssl( $permalink, $post, $leavename ) {
+//   if ( 17 == $post->ID )
+//     return preg_replace( '|^http://|', 'https://', $permalink );
+//   return $permalink;
+// }
+// add_filter( 'pre_post_link', 'yst_checkout_page_ssl', 10, 3 );
 
 
