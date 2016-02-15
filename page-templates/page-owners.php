@@ -215,7 +215,7 @@ if( is_page(2) ) {
     
     </div><!-- sidebar -->
 	<!-- <div class="sidebar-more"><a href="<?php bloginfo('url'); ?>/what-sets-us-apart/">More</a></div>sidebar more -->
-	<div class="thelatest"><a href="<?php bloginfo('url'); ?>/blog/">The Latest</a></div><!-- sidebar more -->
+	<div class="thelatest"><a href="<?php echo $link . 'blog/'; ?>">The Latest</a></div><!-- sidebar more -->
 
 </div><!-- sidebar -->
 </div><!-- service side area -->
