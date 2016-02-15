@@ -258,11 +258,11 @@ function yst_ssl_template_redirect() {
 add_action( 'template_redirect', 'yst_ssl_template_redirect', 1 );
 
 
-// function yst_checkout_page_ssl( $permalink, $post, $leavename ) {
-//   if ( 17 == $post->ID )
-//     return preg_replace( '|^http://|', 'https://', $permalink );
-//   return $permalink;
-// }
-// add_filter( 'pre_post_link', 'yst_checkout_page_ssl', 10, 3 );
+function yst_checkout_page_ssl( $permalink, $post, $leavename ) {
+  if ( 3113 == $post->ID || 2688 == $post->ID || 2595 == $post->ID || 2572 == $post->ID || 2541 == $post->ID || 2527 == $post->ID || 17 == $post->ID )
+    return preg_replace( '|^http://|', 'https://', $permalink );
+  return $permalink;
+}
+add_filter( 'pre_post_link', 'yst_checkout_page_ssl', 10, 3 );
 
 
