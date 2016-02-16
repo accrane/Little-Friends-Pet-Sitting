@@ -268,6 +268,13 @@ $parentLink = get_page_link($pid);
 
 		</main><!-- #main -->
 	</div><!-- #primary -->
+
+	<div style="display: none">
+		<div id="late-booking">
+			<?php the_field('services_pricing', 'option'); ?>
+		</div>
+	</div>
+
 </div><!-- wrapper -->
 
 <?php get_footer(); ?>

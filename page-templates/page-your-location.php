@@ -20,7 +20,7 @@ get_header(); ?>
 			<?php
 			while ( have_posts() ) : the_post();
 
-				get_template_part( 'template-parts/content', 'page' );
+				//get_template_part( 'template-parts/content', 'page' );
 
 			endwhile; // End of the loop.
 
@@ -128,9 +128,9 @@ foreach( $terms as $term ) {
 // If no match
 if( $match !== 'yes' || $match = '' )	{ ?>
 
-
-<h2>Your search did not return any results. </h2>
-<p>Please give us a call at 704-340-8102 to see if we service your area or select your location from the map below.</p>
+<div class="entry-content">
+	<?php the_content(); ?>
+</div>
 
 <div class="search-locations-result">
 <h3>Locations: </h3>
