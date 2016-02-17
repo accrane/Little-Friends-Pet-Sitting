@@ -7,7 +7,7 @@
         <a href="<?php bloginfo('url'); ?>/contact-us/">Contact Us</a>
       </div><!-- contact -->
       <div class="sas">
-        <a href="<?php the_field('s_a_s', 'option'); ?>">Schedule a Service</a>
+        <a target="_blank" href="<?php the_field('s_a_s', 'option'); ?>">Schedule a Service</a>
       </div><!-- contact -->
     </div><!-- wrapper -->
 
