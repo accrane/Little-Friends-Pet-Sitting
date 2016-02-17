@@ -4449,6 +4449,40 @@ h1 {
       .btn-contact:hover {
         margin-top: -32px; } }
 
+.sas {
+  width: 164px;
+  height: 77px;
+  float: right;
+  line-height: 77px;
+  color: #fff;
+  text-align: center;
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  -ms-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+  display: none;
+  background-image: url(images/red-btn.png);
+  background-size: cover;
+  font-size: 16px;
+  font-family: "Margarine", cursive; }
+  .sas a {
+    color: #fff;
+    display: block; }
+  @media screen and (min-width: 600px) {
+    .sas {
+      margin-top: -37px;
+      display: block;
+      margin-right: 5px; }
+      .sas a {
+        color: #fff;
+        display: block;
+        padding-top: 17px; }
+      .sas a:hover {
+        color: #fff; }
+      .sas:hover {
+        margin-top: -32px; } }
+
 /* Logo */
 .logo, h1.logo {
   width: 280px;

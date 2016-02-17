@@ -258,6 +258,52 @@ h1 {text-align: left;}
 	}
 	
 }
+.sas {
+	width: 164px;
+	height: 77px;
+	float: right;
+	line-height: 77px;
+	color: #fff;
+	text-align: center;
+	@include transition(all 0.2s ease);
+	display: none;
+
+	background: {
+		image: url(images/red-btn.png);
+		size: cover;
+	}
+	
+	font: {
+		size: 16px;
+		family: $font-heading;
+	}
+	& a {
+		color: #fff;
+		display:  block;
+	}
+
+	@media screen and (min-width: $tabwidth) {
+		margin-top: -37px;
+		display:  block;
+		margin-right: 5px;
+		
+		& a {
+			color: #fff;
+			display:  block;
+			padding-top: 17px;
+		}
+		& a:hover {
+			color: #fff;
+		}
+		&:hover {
+			margin-top: -32px;
+		}
+	}
+	@media screen and (min-width: $deskwidth) {
+		
+	}
+	
+}
 /* Logo */
 .logo , h1.logo {
 	width: 280px;
