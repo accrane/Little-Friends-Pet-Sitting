@@ -8,7 +8,7 @@ if( count( $children ) != 0 ) {
 }
 
 $phone = get_field('phone_number', 'option');
-$sas = get_field('sas', 'option');
+$sas = get_field('s_a_s', 'option');
 $link = get_bloginfo('url') . '/' .'new-client-registration/';
 ?>
 
