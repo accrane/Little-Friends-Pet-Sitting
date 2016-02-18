@@ -6,9 +6,23 @@
     <div class="btn-contact">
         <a href="<?php bloginfo('url'); ?>/contact-us/">Contact Us</a>
       </div><!-- contact -->
-      <div class="sas">
-        <a target="_blank" href="<?php the_field('s_a_s', 'option'); ?>">Schedule a Service</a>
-      </div><!-- contact -->
+
+
+      <div class="welcomesigns">
+        <div class="sign-small sign-top ">
+                <div class="sign-info-small">
+                    <a href="<?php echo $sas; ?>" target="_blank">Schedule a Service</a>
+                </div><!-- sign info -->
+            </div><!-- sign -->
+
+            <div class="sign-small sign-top ">
+                <div class="sign-info-small">
+                    <a href="<?php echo $link; ?>new-client-registration">New Client Registration</a>
+                </div><!-- sign info -->
+            </div><!-- sign -->
+        </div><!-- welcomesigns -->
+        
+     
     </div><!-- wrapper -->
 
 
@@ -29,7 +43,7 @@
 
       <div class="header-call-mobile">
         <?php  $phone = get_field('phone_number', 'option'); ?>
-        <a href="<?php echo $phone; ?>"><?php echo 'Call: ' . $phone; ?></a>
+        <?php echo 'Call: ' . $phone; ?>
       </div><!-- header-call -->
       
       <div class="nav-bar-home">

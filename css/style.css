@@ -3415,7 +3415,7 @@ button.menu-toggle {
   position: relative;
   margin: 15px auto;
   display: block;
-  z-index: 1001;
+  z-index: 10;
   width: 280px; }
   @media screen and (min-width: 600px) {
     #sociallinks-footer-main {
@@ -4490,14 +4490,15 @@ h1 {
   margin: 0px auto;
   top: 50px;
   left: 0;
-  right: 0; }
+  right: 0;
+  z-index: 10000; }
   @media screen and (min-width: 600px) {
     .logo, h1.logo {
       width: 300px;
       position: absolute;
       left: 0;
       right: 0;
-      top: 60px; } }
+      top: 30px; } }
   @media screen and (min-width: 1160px) {
     .logo, h1.logo {
       top: 30px;
@@ -4564,6 +4565,8 @@ h1 {
         display: none; } }
 
 #masthead-main-pages {
+  width: 100%;
+  z-index: 1;
   padding: 50px 0 0 0;
   clear: both; }
   @media screen and (min-width: 600px) {
@@ -5141,6 +5144,24 @@ _________________________________*/
       float: right;
       display: inline-block; } }
 
+.welcomesigns {
+  width: 100%;
+  z-index: 1;
+  display: none; }
+  @media screen and (min-width: 600px) {
+    .welcomesigns {
+      width: 100%;
+      float: left;
+      position: absolute;
+      top: 80px;
+      right: 30px; } }
+  @media screen and (min-width: 830px) {
+    .welcomesigns {
+      display: block; } }
+  @media screen and (min-width: 1160px) {
+    .welcomesigns {
+      right: 0; } }
+
 .header-call {
   width: 100%;
   display: none;
@@ -5223,6 +5244,20 @@ _________________________________*/
       width: 164px;
       height: 154px; } }
 
+.sign-small {
+  width: auto;
+  position: relative;
+  width: 120px;
+  height: 113px;
+  background-image: url(images/sign.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 0 -20px; }
+  @media screen and (min-width: 1160px) {
+    .sign-small {
+      width: 120px;
+      height: 113px; } }
+
 .sign-info {
   width: 90%;
   position: absolute;
@@ -5253,6 +5288,38 @@ _________________________________*/
   @media screen and (min-width: 1160px) {
     .sign-info {
       font-size: 18px;
+      width: 90%; } }
+
+.sign-info-small {
+  width: 90%;
+  position: absolute;
+  bottom: 40px;
+  left: 0;
+  right: 0px;
+  margin: 0 auto;
+  text-align: center;
+  line-height: 1.1;
+  font-family: "Margarine", cursive;
+  font-size: 14px;
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  -ms-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  transition: all 0.2s ease; }
+  .sign-info-small a {
+    color: #000;
+    display: block; }
+  @media screen and (min-width: 1160px) {
+    .sign-info-small a:hover {
+      font-size: 17px; } }
+  @media screen and (min-width: 600px) {
+    .sign-info-small {
+      right: 0;
+      font-size: 14px;
+      width: 70%; } }
+  @media screen and (min-width: 1160px) {
+    .sign-info-small {
+      font-size: 16px;
       width: 90%; } }
 
 .sign-top {
@@ -6265,7 +6332,7 @@ h2.pricing-title {
 
 .hanger {
   width: 179px;
-  height: 49px; }
+  height: 51px; }
   @media screen and (min-width: 600px) {
     .hanger {
       position: absolute;

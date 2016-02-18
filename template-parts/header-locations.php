@@ -137,7 +137,7 @@ if( is_single() ) {
     ?>
 
       <div class="header-call">
-        <a href="<?php echo $phone; ?>"><?php echo 'Call: ' . $phone; ?></a>
+       <?php echo 'Call: ' . $phone; ?>
       </div><!-- header-call -->
     
     </div><!-- wrapper -->
@@ -160,7 +160,7 @@ if( is_single() ) {
 <header id="masthead" class="site-header <?php echo $locationClass; ?>" role="banner">
 
   <div class="header-call-mobile">
-        <a href="<?php echo $phone; ?>"><?php echo 'Call: ' . $phone; ?></a>
+        <?php echo 'Call: ' . $phone; ?>
       </div><!-- header-call -->
 
 

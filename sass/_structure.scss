@@ -312,13 +312,14 @@ h1 {text-align: left;}
 	top: 50px;
 	left: 0;
 	right: 0;
+	z-index: 10000;
 
 	@media screen and (min-width: $tabwidth) {
 		width: 300px;
 		position: absolute;
 		left: 0;
 		right: 0;
-		top: 60px;
+		top: 30px;
 	}
 	@media screen and (min-width: $deskwidth) {
 		top: 30px;
@@ -402,6 +403,8 @@ h1 {text-align: left;}
 	}
 }
 #masthead-main-pages {
+	width: 100%;
+	z-index: 1;
 	padding: 50px 0 0 0;
 	clear: both;
 	
@@ -1163,7 +1166,24 @@ _________________________________*/
 		
 	}
 }
-
+.welcomesigns {
+	width: 100%;
+	z-index: 1;
+	display: none;
+	@media screen and (min-width: $tabwidth) {
+		width: 100%;
+		float:  left;
+		position: absolute;
+		top: 80px;
+    	right: 30px;
+	}
+	@media screen and (min-width: $midwidth) {
+		display: block;
+	}
+	@media screen and (min-width: $deskwidth) {
+		right: 0;
+	}
+}
 .header-call {
 	width: 100%; 
 	display: none;
@@ -1268,6 +1288,29 @@ _________________________________*/
 		height: 154px;
 	}
 }
+.sign-small {
+	width: auto;
+	position: relative;
+	width: 120px;
+	height: 113px;
+
+	background: {
+		image: url(images/sign.png);
+		repeat: no-repeat;
+		size: cover;
+		position: 0 -20px;
+	}
+	
+	@media screen and (min-width: $tabwidth) {
+		// width: 90px;
+		// height: 85px;
+		
+	}
+	@media screen and (min-width: $deskwidth) {
+		width: 120px;
+		height: 113px;
+	}
+}
 .sign-info {
 	width: 90%;
 	position:  absolute;
@@ -1298,6 +1341,40 @@ _________________________________*/
 	}
 	@media screen and (min-width: $deskwidth) {
 		font-size: 18px;
+		width: 90%;
+	}
+	
+}
+.sign-info-small {
+	width: 90%;
+	position:  absolute;
+	bottom: 40px;
+	left: 0;
+	right: 0px;
+	margin: 0 auto;
+	text-align: center;
+	line-height: 1.1;
+	font: {
+		family: $font-heading;
+		size: 14px;
+	}
+	@include transition(all 0.2s ease);
+	& a {
+		color: #000;
+		display: block;
+	}
+	& a:hover {
+		@media screen and (min-width: $deskwidth) {
+			font-size: 17px;
+		}
+	}
+	@media screen and (min-width: $tabwidth) {
+		right: 0;
+		font-size: 14px;
+		width: 70%;
+	}
+	@media screen and (min-width: $deskwidth) {
+		font-size: 16px;
 		width: 90%;
 	}
 	
@@ -2495,7 +2572,7 @@ h2.pricing-title {
 }
 .hanger {
 	width: 179px;
-	height: 49px;
+	height: 51px;
 
 	@media screen and (min-width: $tabwidth) {
 		position:  absolute;
