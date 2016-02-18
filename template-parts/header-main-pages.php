@@ -24,18 +24,17 @@ $link = get_bloginfo('url') . '/' .'new-client-registration/';
       </div><!-- contact -->
 
        <div class="welcomesigns">
-        <div class="sign-small sign-top ">
-                <div class="sign-info-small">
-                    <a href="<?php echo $sas; ?>" target="_blank">Schedule a Service</a>
-                </div><!-- sign info -->
-            </div><!-- sign -->
-
-            <div class="sign-small sign-top ">
+        <div class="sign-small sign-top-small ">
                 <div class="sign-info-small">
                     <a href="<?php echo $link; ?>new-client-registration">New Client Registration</a>
                 </div><!-- sign info -->
             </div><!-- sign -->
-        </div><!-- welcomesigns -->
+        <div class="sign-small sign-top-small ">
+                <div class="sign-info-small">
+                    <a href="<?php echo $sas; ?>" target="_blank">Schedule a Service</a>
+                </div><!-- sign info -->
+            </div><!-- sign -->
+    </div><!-- welcomesigns -->
 
         
     </div><!-- wrapper -->

@@ -1174,7 +1174,7 @@ _________________________________*/
 		width: 100%;
 		float:  left;
 		position: absolute;
-		top: 80px;
+		top: 77px;
     	right: 30px;
 	}
 	@media screen and (min-width: $midwidth) {
@@ -1292,13 +1292,13 @@ _________________________________*/
 	width: auto;
 	position: relative;
 	width: 120px;
-	height: 113px;
+	height: 103px;
 
 	background: {
 		image: url(images/sign.png);
 		repeat: no-repeat;
 		size: cover;
-		position: 0 -20px;
+		position: 0 -18px;
 	}
 	
 	@media screen and (min-width: $tabwidth) {
@@ -1382,6 +1382,17 @@ _________________________________*/
 .sign-top {
 	float: right;
 	margin: 0px -20px 0 0;
+
+	@media screen and (min-width: $tabwidth) {
+		
+	}
+	@media screen and (min-width: $deskwidth) {
+
+	}
+}
+.sign-top-small {
+	float: right;
+	margin: 0px -10px 0 0;
 
 	@media screen and (min-width: $tabwidth) {
 		
