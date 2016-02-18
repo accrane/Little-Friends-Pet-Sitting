@@ -6,7 +6,7 @@
     <div class="btn-contact">
         <a href="<?php bloginfo('url'); ?>/contact-us/">Contact Us</a>
       </div><!-- contact -->
-
+<?php $sas = get_field('sas', 'option'); ?>
 
       <div class="welcomesigns">
         <div class="sign-small sign-top-small ">
