@@ -25,8 +25,8 @@ get_header(); ?>
 
 	<div class="wrapper">
 		<div class="find-your-location find-your-location-home left">
-			<h3>FIND YOUR LOCATION ></h3>
-			<p>Enter your zip code to schedule a service or register as a new client!</p>
+			<h3>Enter your zip code to schedule a service or register as a new client!</h3>
+			<!-- <p></p> -->
 		</div><!-- find your location -->
 
 		<?php //get_template_part('template-parts/find-location'); ?>
