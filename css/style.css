@@ -4868,7 +4868,7 @@ _________________________________*/
   display: inline-block; }
   @media screen and (min-width: 600px) {
     .zip-search {
-      width: 45%;
+      width: 35%;
       margin: 50px auto 0 0;
       float: right; } }
 
