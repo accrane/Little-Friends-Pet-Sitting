@@ -92,6 +92,12 @@ $isFeat = $_GET['featured'];
 				</div><!-- hometown -->
 			<?php endif; ?>
 
+			<?php if($petOrSitter == 'pet') { ?>
+				<div class="other">
+					<span class="pets-sum"><?php echo $petBio ?></span>
+				</div><!-- hometown -->
+			<?php endif; ?>
+
 			<?php
 
 			// If comments are open or we have at least one comment, load up the comment template.
