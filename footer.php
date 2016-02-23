@@ -81,6 +81,24 @@ $spambot = antispambot($email);
 
 <?php wp_footer(); ?>
 <?php the_field('google_analytics_code', 'option'); ?>
+<!-- Begin Mongoose Metrics Tracking Code -->
+<script type="text/javascript">
+var mm_c = 'EEDD360A2DD820B93F7F8168F509AE43';
+var mm_protocol = (("https:" == document.location.protocol) ? "https://" : "http://");
+document.write(unescape("%3Cscript src='" + mm_protocol + "www.mongoosemetrics.com/jsfiles/js-correlation/mm-getvar.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+/* Custom Parameters */
+/* MANDATORY default_number Setup Parameter DO NOT REMOVE */
+var default_number='7043408102'; /* 10 Digits Only i.e. 8881234567 */
+
+/* Custom Parameters */
+
+</script>
+<script type="text/javascript">
+document.write(unescape("%3Cscript src='" + mm_protocol + "www.mongoosemetrics.com/jsfiles/js-correlation/mm-control.php%3F" + mm_variables + "' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<!-- End Mongoose Metrics Tracking Code -->
 </body>
 
 </html>
