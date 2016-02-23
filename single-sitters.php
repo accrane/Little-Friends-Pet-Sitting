@@ -92,7 +92,7 @@ $isFeat = $_GET['featured'];
 				<div class="other">
 					<span class="pets-sum"><?php echo $petBio ?></span>
 				</div><!-- hometown -->
-			<?php endif; ?>
+			<?php } ?>
 
 			<?php
 
