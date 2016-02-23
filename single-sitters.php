@@ -78,11 +78,7 @@ $isFeat = $_GET['featured'];
 						<span class="pets-sum"><?php echo $bio ?></span>
 					</div><!-- hometown -->
 				<?php endif; ?>
-				<?php if( $petBio != '' ) : ?>
-					<div class="other">
-						<span class="pets-sum"><?php echo $petBio ?></span>
-					</div><!-- hometown -->
-				<?php endif; ?>
+				
 
 			<?php endif; ?>
 
