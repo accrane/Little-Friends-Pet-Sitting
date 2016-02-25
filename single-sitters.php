@@ -50,7 +50,24 @@ $isFeat = $_GET['featured'];
 				<h1><?php the_title(); ?></h1>
 			</div>
 				
-			<?php if( $isFeat !== 'Y' ) : ?>
+			<?php 
+				// If you're coming from the featured Pet or Sitter
+				if( $isFeat == 'Y' ) : ?>
+
+				<?php if( $sitterLongBio != '' ) : ?>
+					<div class="other">
+						<span class="pets-sum"><?php echo $sitterLongBio ?></span>
+					</div><!-- hometown -->
+				<?php endif; ?>
+
+				<?php if($petBio != '') { ?>
+					<div class="other">
+						<span class="pets-sum"><?php echo $petBio ?></span>
+					</div><!-- hometown -->
+				<?php } ?>
+
+			<?php else: ?>
+				
 				<div class="card-pic"><img src="<?php echo $thumb ?>" /></div>
 
 				
@@ -78,21 +95,12 @@ $isFeat = $_GET['featured'];
 						<span class="pets-sum"><?php echo $bio ?></span>
 					</div><!-- hometown -->
 				<?php endif; ?>
-				
 
 			<?php endif; ?>
 
-			<?php if( $sitterLongBio != '' ) : ?>
-				<div class="other">
-					<span class="pets-sum"><?php echo $sitterLongBio ?></span>
-				</div><!-- hometown -->
-			<?php endif; ?>
+			
 
-			<?php if($petOrSitter == 'pet') { ?>
-				<div class="other">
-					<span class="pets-sum"><?php echo $petBio ?></span>
-				</div><!-- hometown -->
-			<?php } ?>
+			
 
 			<?php
 
