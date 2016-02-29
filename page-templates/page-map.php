@@ -9,14 +9,14 @@
 
 get_header(); 
 
-$lakeNorman = get_bloginfo('url') . '/'. 'huntersville-northlake-davidson-corneilius-lake-norman/';
+$lakeNorman = get_bloginfo('url') . '/'. 'huntersville-northlake-davidson-cornelius-lake-norman/';
 $Charlotte = get_bloginfo('url') . '/'. 'dilworth-uptown-southend-southpark-noda/';
 $northEast = get_bloginfo('url') . '/'. 'concord-kannapolis-university-cabarrus-harrisburg/';
 $SouthCharlotte = get_bloginfo('url') . '/'. 'pineville-ballantyne-waxhaw-weddington/';
 $SouthEastCharlotte = get_bloginfo('url') . '/'. 'matthews-indian-trail-monroe-mint-hill/';
 $southCarolina = get_bloginfo('url') . '/'. 'rock-hill-fort-mill-lake-wylie-tega-cay-york/';
 $gaston = get_bloginfo('url') . '/'. 'gastonia-belmont-mount-holly-mt-island/';
-
+http://littlefriendspetsitting.com/
 ?>
 <div class="wrapper">
 	<div id="primary" class="big-map-area">
