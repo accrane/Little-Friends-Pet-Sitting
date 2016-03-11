@@ -5221,8 +5221,8 @@ _________________________________*/
 .service-signs-vertical-hanger {
   width: 100%;
   position: absolute;
-  top: 60px;
-  right: -10px;
+  top: 70px;
+  right: 25px;
   display: none; }
   @media screen and (min-width: 600px) {
     .service-signs-vertical-hanger {
@@ -5332,7 +5332,7 @@ _________________________________*/
 
 .sign-hanging {
   float: right;
-  margin: -20px 0px 0 0; }
+  margin: -30px 0px 0 0; }
 
 .mobile-signs {
   display: block;
@@ -6340,19 +6340,20 @@ h2.pricing-title {
   @media screen and (min-width: 600px) {
     .hanger {
       position: absolute;
-      top: 10px;
-      right: 0px;
-      background-image: url(images/hanger.png);
-      background-repeat: no-repeat;
-      background-size: cover; } }
+      top: 30px;
+      right: -17px;
+      background-image: url(images/hanger-reverse.png);
+      background-repeat: no-repeat; } }
   @media screen and (min-width: 1160px) {
     .hanger {
-      top: 20px;
-      right: -0px; } }
+      top: 35px;
+      right: -2px; } }
   @media screen and (min-width: 1400px) {
     .hanger {
       top: 50px;
-      right: -150px; } }
+      right: -167px;
+      background-image: url(images/hanger.png);
+      background-repeat: no-repeat; } }
 
 .new-client {
   margin: 50px auto;
