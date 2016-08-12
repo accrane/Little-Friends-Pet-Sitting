@@ -72,7 +72,7 @@
             $height = $image['sizes'][ $size . '-height' ];
               
             ?>
-              <a href="<?php echo get_permalink() . '?location=' . $urlParam; ?>"><img src="<?php echo $thumb; ?>" /></a>
+              <a href="<?php echo get_permalink() . '?location=' . $urlParam . '&featured=Y';?>"><img src="<?php echo $thumb; ?>" /></a>
 
             </div><!-- tv-pic -->
             
