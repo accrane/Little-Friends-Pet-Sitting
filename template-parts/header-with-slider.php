@@ -11,7 +11,8 @@
       <div class="welcomesigns">
         <div class="sign-small sign-top-small ">
                 <div class="sign-info-small">
-                    <a href="<?php echo $link; ?>new-client-registration">New Client Registration</a>
+                     <!-- <a href="<?php echo $link; ?>new-client-registration">New Client Registration</a> -->
+                    <a target="_blank" href="https://www.timetopet.com/portal/littlefriends/create-account">New Client Registration</a>
                 </div><!-- sign info -->
             </div><!-- sign -->
         <div class="sign-small sign-top-small ">
