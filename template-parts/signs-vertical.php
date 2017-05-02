@@ -36,6 +36,7 @@
 
 <div class="sign sign-hanging z1">
     <div class="sign-info">
-        <a href="<?php echo $link; ?>new-client-registration">New Client Registration</a>
+         <!-- <a href="<?php echo $link; ?>new-client-registration">New Client Registration</a> -->
+                    <a target="_blank" href="https://www.timetopet.com/portal/littlefriends/create-account">New Client Registration</a>
     </div><!-- sign info -->
 </div><!-- sign -->
