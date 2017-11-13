@@ -6,10 +6,10 @@ if( count( $children ) != 0 ) {
 } else {
   $masthead = 'masthead-main-pages';
 }
-
+$baseUrl = get_bloginfo('url');
 $phone = get_field('phone_number', 'option');
 $sas = get_field('s_a_s', 'option');
-$link = get_bloginfo('url') . '/' .'new-client-registration/';
+$link = $baseUrl . '/' .'new-client-registration/';
 ?>
 
 <div class="static-header">
@@ -19,23 +19,45 @@ $link = get_bloginfo('url') . '/' .'new-client-registration/';
  <div class="wrapper">
     <div id="sociallinks-header"><?php acc_social_links(); ?></div>
 
+    
+
     <div class="btn-contact">
         <a href="<?php bloginfo('url'); ?>/contact-us/">Contact Us</a>
       </div><!-- contact -->
 
-       <div class="welcomesigns">
-        <div class="sign-small sign-top-small ">
-                <div class="sign-info-small">
-                    <!-- <a href="<?php echo $link; ?>new-client-registration">New Client Registration</a> -->
-                    <a target="_blank" href="https://www.timetopet.com/portal/littlefriends/create-account">New Client Registration</a>
-                </div><!-- sign info -->
-            </div><!-- sign -->
-        <div class="sign-small sign-top-small ">
-                <div class="sign-info-small">
-                    <a href="<?php echo $sas; ?>" target="_blank">Schedule a Service</a>
-                </div><!-- sign info -->
-            </div><!-- sign -->
-    </div><!-- welcomesigns -->
+      <div class="location-nav">
+        <ul>
+          <li><a href="<?php echo $baseUrl . '/blog'; ?>">Blog</a></li>
+          <li><a href="<?php echo $baseUrl . '/join-our-team'; ?>">Join Our Team</a></li>
+          <!-- <li><a href="<?php echo $link . 'contact-us'; ?>">Contact Us</a></li> -->
+        </ul>
+      </div><!-- location nav -->
+
+      <div class="clear"></div>
+
+      <div class="wrapper locations-second-tier">
+
+        <?php $phone = get_field('phone_number', 'option'); ?>
+
+        <div class="header-call-left">
+         <?php echo 'Call: ' . $phone; ?>
+        </div><!-- header-call -->
+
+         <div class="welcomesigns-new">
+          <div class="sign-small sign-top-small ">
+                  <div class="sign-info-small">
+                      <!-- <a href="<?php echo $link; ?>new-client-registration">New Client Registration</a> -->
+                      <a target="_blank" href="https://www.timetopet.com/portal/littlefriends/create-account">New Client Registration</a>
+                  </div><!-- sign info -->
+              </div><!-- sign -->
+          <div class="sign-small sign-top-small ">
+                  <div class="sign-info-small">
+                      <a href="<?php echo $sas; ?>" target="_blank">Schedule a Service</a>
+                  </div><!-- sign info -->
+              </div><!-- sign -->
+      </div><!-- welcomesigns -->
+
+    </div><!-- wrapper -->
 
         
     </div><!-- wrapper -->

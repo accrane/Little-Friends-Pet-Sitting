@@ -52,7 +52,7 @@ get_header(); ?>
 
 			<div class="home-map">
 				<a href="<?php bloginfo('url'); ?>/locations">
-					<img src="<?php bloginfo('template_url'); ?>/css/images/map-small.png" />
+					<img src="<?php bloginfo('template_url'); ?>/images/map-small.png" />
 				</a>
 			</div><!-- home map -->
 

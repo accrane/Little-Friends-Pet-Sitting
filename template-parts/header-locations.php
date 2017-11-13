@@ -89,31 +89,32 @@ if( is_single() ) {
 
   <div class="wrapper">
 
-    <?php  if( $pageType != 'non-location') { ?>
-    <div class="location-tab">
-      <h2><?php echo $region[0]->name; ?></h2>
-      <div class="not-your-location">
-        <a href="<?php bloginfo('url'); ?>/location">not your location?</a>
-      </div><!-- not your location -->
-      <p>
-        <?php // Get our cities
-          if( have_rows('cities','location_' . $ID) ) :
-            while( have_rows('cities','location_' . $ID) ) : the_row(); $i++;
+    <?php  
+    if( is_page(2273) ||is_page(2285) || is_page(2275) || is_page(2277) || is_page(2283) || is_page(2279) || is_page(2281) ) { ?>
+        <div class="location-tab">
+          <h2><?php echo $region[0]->name; ?></h2>
+          <div class="not-your-location">
+            <a href="<?php bloginfo('url'); ?>/location">not your location?</a>
+          </div><!-- not your location -->
+          <p>
+            <?php // Get our cities
+              if( have_rows('cities','location_' . $ID) ) :
+                while( have_rows('cities','location_' . $ID) ) : the_row(); $i++;
 
-              $cName = get_sub_field('city');
-              if( $i < $num ) {
-                echo $cName . ', ';
-              }else{
-                echo $cName;
-              }
-              
-               
-            endwhile;
-          endif;
-          ?>
-      </p>
-    </div><!-- location tab -->
-    <?php } // endif not a location ?>
+                  $cName = get_sub_field('city');
+                  if( $i < $num ) {
+                    echo $cName . ', ';
+                  }else{
+                    echo $cName;
+                  }
+                  
+                   
+                endwhile;
+              endif;
+              ?>
+          </p>
+        </div><!-- location tab -->
+    <?php } ?>
 
     <div class="location-nav">
         <ul>

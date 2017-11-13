@@ -1,3 +1,8 @@
+<?php 
+$baseUrl = get_bloginfo('url');
+
+ ?>
+
 <div class="static-header">
 
   <div class="wrapper">
@@ -6,9 +11,28 @@
     <div class="btn-contact">
         <a href="<?php bloginfo('url'); ?>/contact-us/">Contact Us</a>
       </div><!-- contact -->
-<?php $sas = get_field('s_a_s', 'option'); ?>
 
-      <div class="welcomesigns">
+      <div class="location-nav">
+        <ul>
+          <li><a href="<?php echo $baseUrl . '/blog'; ?>">Blog</a></li>
+          <li><a href="<?php echo $baseUrl . '/join-our-team'; ?>">Join Our Team</a></li>
+          <!-- <li><a href="<?php echo $link . 'contact-us'; ?>">Contact Us</a></li> -->
+        </ul>
+      </div><!-- location nav -->
+
+      <div class="clear"></div>
+
+      <div class="wrapper locations-second-tier">
+
+        <?php $phone = get_field('phone_number', 'option'); ?>
+
+        <div class="header-call-left">
+         <?php echo 'Call: ' . $phone; ?>
+        </div><!-- header-call -->
+
+        <?php $sas = get_field('s_a_s', 'option'); ?>
+
+      <div class="welcomesigns-new">
         <div class="sign-small sign-top-small ">
                 <div class="sign-info-small">
                      <!-- <a href="<?php echo $link; ?>new-client-registration">New Client Registration</a> -->
@@ -23,6 +47,8 @@
     </div><!-- welcomesigns -->
 
      
+     </div><!-- wrapper -->
+
     </div><!-- wrapper -->
 
 
