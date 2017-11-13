@@ -86,13 +86,13 @@ $urlParam = sanitize_title_with_dashes($region[0]->name);
 		        'meta_value' => 'sitter',
 				'orderby' => 'title', 
 				'order' => 'ASC',
-				'tax_query' => array(
-					array(
-						'taxonomy' => 'location', // your custom taxonomy
-						'field' => 'term_id',
-						'terms' => array( $ID ) // the terms (categories) you created
-					)
-				)
+				// 'tax_query' => array(
+				// 	array(
+				// 		'taxonomy' => 'location', // your custom taxonomy
+				// 		'field' => 'term_id',
+				// 		'terms' => array( $ID ) // the terms (categories) you created
+				// 	)
+				// )
 			));
 			if ($wp_query->have_posts()) : ?>
 

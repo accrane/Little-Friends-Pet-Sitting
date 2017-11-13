@@ -50,10 +50,10 @@ $parentLink = get_page_link($pid);
 				$wp_query->query(array(
 				'post_type'=>'services',
 				'posts_per_page' => -1,
-				// 'post__in' => array(
-				// 	'315',  // Pet Sitting
-				// 	'2318',  // Dog Walking
-				// 	),
+				'post__in' => array(
+					'315',  // Pet Sitting
+					'2318',  // Dog Walking
+					),
 				// 'tax_query' => array(
 				// 	array(
 				// 		'taxonomy' => $taxonomy, // your custom taxonomy
