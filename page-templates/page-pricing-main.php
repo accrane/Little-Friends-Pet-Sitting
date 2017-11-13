@@ -73,15 +73,15 @@ $parentLink = get_page_link($pid);
                     $priceNotes = get_field('pricing_notes');
                  
                     if($santiTitle == 'errand-service') {
-                    	$link = $parentLink . 'services-pricing/home-care-errand-services/#' . $santiTitle;
+                    	$link = $parentLink . 'home-care-errand-services/#' . $santiTitle;
                     } elseif($santiTitle == 'pet-taxi') {
-                    	$link = $parentLink . 'services-pricing/home-care-errand-services/#' . $santiTitle;
+                    	$link = $parentLink . 'home-care-errand-services/#' . $santiTitle;
                     } elseif($santiTitle == 'key-pick-updrop-off') {
-                    	$link = $parentLink . 'services-pricing/home-care-errand-services/#' . $santiTitle;
+                    	$link = $parentLink . 'home-care-errand-services/#' . $santiTitle;
                     } elseif($santiTitle == 'home-care') {
-                    	$link = $parentLink . 'services-pricing/home-care-errand-services/#' . $santiTitle;
+                    	$link = $parentLink . 'shome-care-errand-services/#' . $santiTitle;
                     } else {
-                    	$link = $parentLink . 'services-pricing/pet-sitting-dog-walking/#' . $santiTitle;
+                    	$link = $parentLink . 'pet-sitting-dog-walking/#' . $santiTitle;
                     }
                     
 ?>			
