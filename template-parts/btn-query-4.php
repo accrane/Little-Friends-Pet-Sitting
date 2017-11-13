@@ -29,13 +29,13 @@ $parentLink = get_page_link($pid);
                     '315',  // Pet Sitting
                     '2318',  // Dog Walking
                     ),
-                'tax_query' => array(
-                    array(
-                        'taxonomy' => $taxonomy, // your custom taxonomy
-                        'field' => 'term_id',
-                        'terms' => array( $ID ) // the terms (categories) you created
-                    )
-                )
+                // 'tax_query' => array(
+                //     array(
+                //         'taxonomy' => $taxonomy, // your custom taxonomy
+                //         'field' => 'term_id',
+                //         'terms' => array( $ID ) // the terms (categories) you created
+                //     )
+                // )
             ));
                 $i = 0;
             if ($wp_query->have_posts()) : ?>
