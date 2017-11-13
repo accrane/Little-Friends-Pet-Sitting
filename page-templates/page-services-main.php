@@ -101,7 +101,7 @@ $parentLink = get_page_link($pid);
 					$title = get_the_title();
 					$shortDesc = short_desc_excerpt();
 					$santiTitle = sanitize_title_with_dashes($title);
-					$newlink = get_bloginfo('url') . 'services-pricing/pet-sitting-dog-walking/#' . $santiTitle;
+					$link = $parentLink . 'services-pricing/pet-sitting-dog-walking/#' . $santiTitle;
 
 					if($i == 1) {
 						$margin = 'firstbox';

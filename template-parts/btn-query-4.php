@@ -76,7 +76,7 @@ $parentLink = get_page_link($pid);
 
                     $title = get_the_title();
                     $santiTitle = sanitize_title_with_dashes($title);
-                    $link = $parentLink . 'services-pricing/home-care-errand-services/#' . $santiTitle;
+                    $link = $parentLink . 'home-care-errand-services/#' . $santiTitle;
 
 
             ?>
