@@ -299,7 +299,7 @@ $parentLink = get_page_link($pid);
 
 					$title = get_the_title();
 					$santiTitle = sanitize_title_with_dashes($title);
-					$link = $parentLink . 'services-pricing/pet-sitting-dog-walking/#' . $santiTitle;
+					$link = $parentLink . 'pet-sitting-dog-walking/#' . $santiTitle;
 
 			?>
 				<div class="service-btn <?php echo $btnClass; ?> wow zoomIn animated"     data-wow-duration=".2s">
