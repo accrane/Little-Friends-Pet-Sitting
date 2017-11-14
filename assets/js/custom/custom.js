@@ -36,11 +36,11 @@ $('.inline').colorbox({
 	Image Map highlight
 __________________________________________
 */
-// $('.map').maphilight({
-// 	fade: false,
-// 	fillColor: '000000',
-// 	fillOpacity: 0.4
-// });
+$('.map').maphilight({
+	fade: false,
+	fillColor: '000000',
+	fillOpacity: 0.4
+});
 
 	// $(".inline").colorbox({inline:true, width:"50%"});
 
