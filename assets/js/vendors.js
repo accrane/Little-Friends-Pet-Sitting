@@ -3530,5 +3530,365 @@ function makeArray( obj ) {
 	}
 } )();
 
+(function($) {
+  var has_VML, has_canvas, create_canvas_for, add_shape_to, clear_canvas, shape_from_area,
+    canvas_style, hex_to_decimal, css3color, is_image_loaded, options_from_area;
+
+  has_canvas = !!document.createElement('canvas').getContext;
+
+  // VML: more complex
+  has_VML = (function() {
+    var a = document.createElement('div');
+    a.innerHTML = '<v:shape id="vml_flag1" adj="1" />';
+    var b = a.firstChild;
+    b.style.behavior = "url(#default#VML)";
+    return b ? typeof b.adj == "object": true;
+  })();
+
+  if(!(has_canvas || has_VML)) {
+    $.fn.maphilight = function() { return this; };
+    return;
+  }
+  
+  if(has_canvas) {
+    hex_to_decimal = function(hex) {
+      return Math.max(0, Math.min(parseInt(hex, 16), 255));
+    };
+    css3color = function(color, opacity) {
+      return 'rgba('+hex_to_decimal(color.substr(0,2))+','+hex_to_decimal(color.substr(2,2))+','+hex_to_decimal(color.substr(4,2))+','+opacity+')';
+    };
+    create_canvas_for = function(img) {
+      var c = $('<canvas style="width:'+$(img).width()+'px;height:'+$(img).height()+'px;"></canvas>').get(0);
+      c.getContext("2d").clearRect(0, 0, $(img).width(), $(img).height());
+      return c;
+    };
+    var draw_shape = function(context, shape, coords, x_shift, y_shift) {
+      x_shift = x_shift || 0;
+      y_shift = y_shift || 0;
+      
+      context.beginPath();
+      if(shape == 'rect') {
+        // x, y, width, height
+        context.rect(coords[0] + x_shift, coords[1] + y_shift, coords[2] - coords[0], coords[3] - coords[1]);
+      } else if(shape == 'poly') {
+        context.moveTo(coords[0] + x_shift, coords[1] + y_shift);
+        for(i=2; i < coords.length; i+=2) {
+          context.lineTo(coords[i] + x_shift, coords[i+1] + y_shift);
+        }
+      } else if(shape == 'circ') {
+        // x, y, radius, startAngle, endAngle, anticlockwise
+        context.arc(coords[0] + x_shift, coords[1] + y_shift, coords[2], 0, Math.PI * 2, false);
+      }
+      context.closePath();
+    };
+    add_shape_to = function(canvas, shape, coords, options, name) {
+      var i, context = canvas.getContext('2d');
+      
+      // Because I don't want to worry about setting things back to a base state
+      
+      // Shadow has to happen first, since it's on the bottom, and it does some clip /
+      // fill operations which would interfere with what comes next.
+      if(options.shadow) {
+        context.save();
+        if(options.shadowPosition == "inside") {
+          // Cause the following stroke to only apply to the inside of the path
+          draw_shape(context, shape, coords);
+          context.clip();
+        }
+        
+        // Redraw the shape shifted off the canvas massively so we can cast a shadow
+        // onto the canvas without having to worry about the stroke or fill (which
+        // cannot have 0 opacity or width, since they're what cast the shadow).
+        var x_shift = canvas.width * 100;
+        var y_shift = canvas.height * 100;
+        draw_shape(context, shape, coords, x_shift, y_shift);
+        
+        context.shadowOffsetX = options.shadowX - x_shift;
+        context.shadowOffsetY = options.shadowY - y_shift;
+        context.shadowBlur = options.shadowRadius;
+        context.shadowColor = css3color(options.shadowColor, options.shadowOpacity);
+        
+        // Now, work out where to cast the shadow from! It looks better if it's cast
+        // from a fill when it's an outside shadow or a stroke when it's an interior
+        // shadow. Allow the user to override this if they need to.
+        var shadowFrom = options.shadowFrom;
+        if (!shadowFrom) {
+          if (options.shadowPosition == 'outside') {
+            shadowFrom = 'fill';
+          } else {
+            shadowFrom = 'stroke';
+          }
+        }
+        if (shadowFrom == 'stroke') {
+          context.strokeStyle = "rgba(0,0,0,1)";
+          context.stroke();
+        } else if (shadowFrom == 'fill') {
+          context.fillStyle = "rgba(0,0,0,1)";
+          context.fill();
+        }
+        context.restore();
+        
+        // and now we clean up
+        if(options.shadowPosition == "outside") {
+          context.save();
+          // Clear out the center
+          draw_shape(context, shape, coords);
+          context.globalCompositeOperation = "destination-out";
+          context.fillStyle = "rgba(0,0,0,1);";
+          context.fill();
+          context.restore();
+        }
+      }
+      
+      context.save();
+      
+      draw_shape(context, shape, coords);
+      
+      // fill has to come after shadow, otherwise the shadow will be drawn over the fill,
+      // which mostly looks weird when the shadow has a high opacity
+      if(options.fill) {
+        context.fillStyle = css3color(options.fillColor, options.fillOpacity);
+        context.fill();
+      }
+      // Likewise, stroke has to come at the very end, or it'll wind up under bits of the
+      // shadow or the shadow-background if it's present.
+      if(options.stroke) {
+        context.strokeStyle = css3color(options.strokeColor, options.strokeOpacity);
+        context.lineWidth = options.strokeWidth;
+        context.stroke();
+      }
+      
+      context.restore();
+      
+      if(options.fade) {
+        $(canvas).css('opacity', 0).animate({opacity: 1}, 100);
+      }
+    };
+    clear_canvas = function(canvas) {
+      canvas.getContext('2d').clearRect(0, 0, canvas.width,canvas.height);
+    };
+  } else {   // ie executes this code
+    create_canvas_for = function(img) {
+      return $('<var style="zoom:1;overflow:hidden;display:block;width:'+img.width+'px;height:'+img.height+'px;"></var>').get(0);
+    };
+    add_shape_to = function(canvas, shape, coords, options, name) {
+      var fill, stroke, opacity, e;
+      for (var i in coords) { coords[i] = parseInt(coords[i], 10); }
+      fill = '<v:fill color="#'+options.fillColor+'" opacity="'+(options.fill ? options.fillOpacity : 0)+'" />';
+      stroke = (options.stroke ? 'strokeweight="'+options.strokeWidth+'" stroked="t" strokecolor="#'+options.strokeColor+'"' : 'stroked="f"');
+      opacity = '<v:stroke opacity="'+options.strokeOpacity+'"/>';
+      if(shape == 'rect') {
+        e = $('<v:rect name="'+name+'" filled="t" '+stroke+' style="zoom:1;margin:0;padding:0;display:block;position:absolute;left:'+coords[0]+'px;top:'+coords[1]+'px;width:'+(coords[2] - coords[0])+'px;height:'+(coords[3] - coords[1])+'px;"></v:rect>');
+      } else if(shape == 'poly') {
+        e = $('<v:shape name="'+name+'" filled="t" '+stroke+' coordorigin="0,0" coordsize="'+canvas.width+','+canvas.height+'" path="m '+coords[0]+','+coords[1]+' l '+coords.join(',')+' x e" style="zoom:1;margin:0;padding:0;display:block;position:absolute;top:0px;left:0px;width:'+canvas.width+'px;height:'+canvas.height+'px;"></v:shape>');
+      } else if(shape == 'circ') {
+        e = $('<v:oval name="'+name+'" filled="t" '+stroke+' style="zoom:1;margin:0;padding:0;display:block;position:absolute;left:'+(coords[0] - coords[2])+'px;top:'+(coords[1] - coords[2])+'px;width:'+(coords[2]*2)+'px;height:'+(coords[2]*2)+'px;"></v:oval>');
+      }
+      e.get(0).innerHTML = fill+opacity;
+      $(canvas).append(e);
+    };
+    clear_canvas = function(canvas) {
+      // jquery1.8 + ie7 
+      var $html = $("<div>" + canvas.innerHTML + "</div>");
+      $html.children('[name=highlighted]').remove();
+      canvas.innerHTML = $html.html();
+    };
+  }
+  
+  shape_from_area = function(area) {
+    var i, coords = area.getAttribute('coords').split(',');
+    for (i=0; i < coords.length; i++) { coords[i] = parseFloat(coords[i]); }
+    return [area.getAttribute('shape').toLowerCase().substr(0,4), coords];
+  };
+
+  options_from_area = function(area, options) {
+    var $area = $(area);
+    return $.extend({}, options, $.metadata ? $area.metadata() : false, $area.data('maphilight'));
+  };
+  
+  is_image_loaded = function(img) {
+    if(!img.complete) { return false; } // IE
+    if(typeof img.naturalWidth != "undefined" && img.naturalWidth === 0) { return false; } // Others
+    return true;
+  };
+
+  canvas_style = {
+    position: 'absolute',
+    left: 0,
+    top: 0,
+    padding: 0,
+    border: 0
+  };
+  
+  var ie_hax_done = false;
+  $.fn.maphilight = function(opts) {
+    opts = $.extend({}, $.fn.maphilight.defaults, opts);
+    
+    if(!has_canvas && !ie_hax_done) {
+      $(window).ready(function() {
+        document.namespaces.add("v", "urn:schemas-microsoft-com:vml");
+        var style = document.createStyleSheet();
+        var shapes = ['shape','rect', 'oval', 'circ', 'fill', 'stroke', 'imagedata', 'group','textbox'];
+        $.each(shapes,
+          function() {
+            style.addRule('v\\:' + this, "behavior: url(#default#VML); antialias:true");
+          }
+        );
+      });
+      ie_hax_done = true;
+    }
+    
+    return this.each(function() {
+      var img, wrap, options, map, canvas, canvas_always, highlighted_shape, usemap;
+      img = $(this);
+
+      if(!is_image_loaded(this)) {
+        // If the image isn't fully loaded, this won't work right.  Try again later.
+        return window.setTimeout(function() {
+          img.maphilight(opts);
+        }, 200);
+      }
+
+      options = $.extend({}, opts, $.metadata ? img.metadata() : false, img.data('maphilight'));
+
+      // jQuery bug with Opera, results in full-url#usemap being returned from jQuery's attr.
+      // So use raw getAttribute instead.
+      usemap = img.get(0).getAttribute('usemap');
+
+      if (!usemap) {
+        return;
+      }
+
+      map = $('map[name="'+usemap.substr(1)+'"]');
+
+      if(!(img.is('img,input[type="image"]') && usemap && map.size() > 0)) {
+        return;
+      }
+
+      if(img.hasClass('maphilighted')) {
+        // We're redrawing an old map, probably to pick up changes to the options.
+        // Just clear out all the old stuff.
+        var wrapper = img.parent();
+        img.insertBefore(wrapper);
+        wrapper.remove();
+        $(map).unbind('.maphilight');
+      }
+
+      wrap = $('<div></div>').css({
+        display:'block',
+        backgroundImage:'url("'+this.src+'")',
+        backgroundSize:'contain',
+        position:'relative',
+        padding:0,
+        width:this.width,
+        height:this.height
+        });
+      if(options.wrapClass) {
+        if(options.wrapClass === true) {
+          wrap.addClass($(this).attr('class'));
+        } else {
+          wrap.addClass(options.wrapClass);
+        }
+      }
+      img.before(wrap).css('opacity', 0).css(canvas_style).remove();
+      if(has_VML) { img.css('filter', 'Alpha(opacity=0)'); }
+      wrap.append(img);
+      
+      canvas = create_canvas_for(this);
+      $(canvas).css(canvas_style);
+      canvas.height = this.height;
+      canvas.width = this.width;
+      
+      $(map).bind('alwaysOn.maphilight', function() {
+        // Check for areas with alwaysOn set. These are added to a *second* canvas,
+        // which will get around flickering during fading.
+        if(canvas_always) {
+          clear_canvas(canvas_always);
+        }
+        if(!has_canvas) {
+          $(canvas).empty();
+        }
+        $(map).find('area[coords]').each(function() {
+          var shape, area_options;
+          area_options = options_from_area(this, options);
+          if(area_options.alwaysOn) {
+            if(!canvas_always && has_canvas) {
+              canvas_always = create_canvas_for(img[0]);
+              $(canvas_always).css(canvas_style);
+              canvas_always.width = img[0].width;
+              canvas_always.height = img[0].height;
+              img.before(canvas_always);
+            }
+            area_options.fade = area_options.alwaysOnFade; // alwaysOn shouldn't fade in initially
+            shape = shape_from_area(this);
+            if (has_canvas) {
+              add_shape_to(canvas_always, shape[0], shape[1], area_options, "");
+            } else {
+              add_shape_to(canvas, shape[0], shape[1], area_options, "");
+            }
+          }
+        });
+      }).trigger('alwaysOn.maphilight')
+      .bind('mouseover.maphilight, focus.maphilight', function(e) {
+        var shape, area_options, area = e.target;
+        area_options = options_from_area(area, options);
+        if(!area_options.neverOn && !area_options.alwaysOn) {
+          shape = shape_from_area(area);
+          add_shape_to(canvas, shape[0], shape[1], area_options, "highlighted");
+          if(area_options.groupBy) {
+            var areas;
+            // two ways groupBy might work; attribute and selector
+            if(/^[a-zA-Z][\-a-zA-Z]+$/.test(area_options.groupBy)) {
+              areas = map.find('area['+area_options.groupBy+'="'+$(area).attr(area_options.groupBy)+'"]');
+            } else {
+              areas = map.find(area_options.groupBy);
+            }
+            var first = area;
+            areas.each(function() {
+              if(this != first) {
+                var subarea_options = options_from_area(this, options);
+                if(!subarea_options.neverOn && !subarea_options.alwaysOn) {
+                  var shape = shape_from_area(this);
+                  add_shape_to(canvas, shape[0], shape[1], subarea_options, "highlighted");
+                }
+              }
+            });
+          }
+          // workaround for IE7, IE8 not rendering the final rectangle in a group
+          if(!has_canvas) {
+            $(canvas).append('<v:rect></v:rect>');
+          }
+        }
+      }).bind('mouseout.maphilight, blur.maphilight', function(e) { clear_canvas(canvas); });
+      
+      img.before(canvas); // if we put this after, the mouseover events wouldn't fire.
+      
+      img.addClass('maphilighted');
+    });
+  };
+  $.fn.maphilight.defaults = {
+    fill: true,
+    fillColor: '000000',
+    fillOpacity: 0.2,
+    stroke: true,
+    strokeColor: 'ff0000',
+    strokeOpacity: 1,
+    strokeWidth: 1,
+    fade: true,
+    alwaysOn: false,
+    neverOn: false,
+    groupBy: false,
+    wrapClass: true,
+    // plenty of shadow:
+    shadow: false,
+    shadowX: 0,
+    shadowY: 0,
+    shadowRadius: 6,
+    shadowColor: '000000',
+    shadowOpacity: 0.8,
+    shadowPosition: 'outside',
+    shadowFrom: false
+  };
+})(jQuery);
 /*! WOW - v1.0.2 - 2014-10-28
 * Copyright (c) 2014 Matthieu Aussaguel; Licensed MIT */(function(){var a,b,c,d,e,f=function(a,b){return function(){return a.apply(b,arguments)}},g=[].indexOf||function(a){for(var b=0,c=this.length;c>b;b++)if(b in this&&this[b]===a)return b;return-1};b=function(){function a(){}return a.prototype.extend=function(a,b){var c,d;for(c in b)d=b[c],null==a[c]&&(a[c]=d);return a},a.prototype.isMobile=function(a){return/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(a)},a.prototype.addEvent=function(a,b,c){return null!=a.addEventListener?a.addEventListener(b,c,!1):null!=a.attachEvent?a.attachEvent("on"+b,c):a[b]=c},a.prototype.removeEvent=function(a,b,c){return null!=a.removeEventListener?a.removeEventListener(b,c,!1):null!=a.detachEvent?a.detachEvent("on"+b,c):delete a[b]},a.prototype.innerHeight=function(){return"innerHeight"in window?window.innerHeight:document.documentElement.clientHeight},a}(),c=this.WeakMap||this.MozWeakMap||(c=function(){function a(){this.keys=[],this.values=[]}return a.prototype.get=function(a){var b,c,d,e,f;for(f=this.keys,b=d=0,e=f.length;e>d;b=++d)if(c=f[b],c===a)return this.values[b]},a.prototype.set=function(a,b){var c,d,e,f,g;for(g=this.keys,c=e=0,f=g.length;f>e;c=++e)if(d=g[c],d===a)return void(this.values[c]=b);return this.keys.push(a),this.values.push(b)},a}()),a=this.MutationObserver||this.WebkitMutationObserver||this.MozMutationObserver||(a=function(){function a(){"undefined"!=typeof console&&null!==console&&console.warn("MutationObserver is not supported by your browser."),"undefined"!=typeof console&&null!==console&&console.warn("WOW.js cannot detect dom mutations, please call .sync() after loading new content.")}return a.notSupported=!0,a.prototype.observe=function(){},a}()),d=this.getComputedStyle||function(a){return this.getPropertyValue=function(b){var c;return"float"===b&&(b="styleFloat"),e.test(b)&&b.replace(e,function(a,b){return b.toUpperCase()}),(null!=(c=a.currentStyle)?c[b]:void 0)||null},this},e=/(\-([a-z]){1})/g,this.WOW=function(){function e(a){null==a&&(a={}),this.scrollCallback=f(this.scrollCallback,this),this.scrollHandler=f(this.scrollHandler,this),this.start=f(this.start,this),this.scrolled=!0,this.config=this.util().extend(a,this.defaults),this.animationNameCache=new c}return e.prototype.defaults={boxClass:"wow",animateClass:"animated",offset:0,mobile:!0,live:!0},e.prototype.init=function(){var a;return this.element=window.document.documentElement,"interactive"===(a=document.readyState)||"complete"===a?this.start():this.util().addEvent(document,"DOMContentLoaded",this.start),this.finished=[]},e.prototype.start=function(){var b,c,d,e;if(this.stopped=!1,this.boxes=function(){var a,c,d,e;for(d=this.element.querySelectorAll("."+this.config.boxClass),e=[],a=0,c=d.length;c>a;a++)b=d[a],e.push(b);return e}.call(this),this.all=function(){var a,c,d,e;for(d=this.boxes,e=[],a=0,c=d.length;c>a;a++)b=d[a],e.push(b);return e}.call(this),this.boxes.length)if(this.disabled())this.resetStyle();else for(e=this.boxes,c=0,d=e.length;d>c;c++)b=e[c],this.applyStyle(b,!0);return this.disabled()||(this.util().addEvent(window,"scroll",this.scrollHandler),this.util().addEvent(window,"resize",this.scrollHandler),this.interval=setInterval(this.scrollCallback,50)),this.config.live?new a(function(a){return function(b){var c,d,e,f,g;for(g=[],e=0,f=b.length;f>e;e++)d=b[e],g.push(function(){var a,b,e,f;for(e=d.addedNodes||[],f=[],a=0,b=e.length;b>a;a++)c=e[a],f.push(this.doSync(c));return f}.call(a));return g}}(this)).observe(document.body,{childList:!0,subtree:!0}):void 0},e.prototype.stop=function(){return this.stopped=!0,this.util().removeEvent(window,"scroll",this.scrollHandler),this.util().removeEvent(window,"resize",this.scrollHandler),null!=this.interval?clearInterval(this.interval):void 0},e.prototype.sync=function(){return a.notSupported?this.doSync(this.element):void 0},e.prototype.doSync=function(a){var b,c,d,e,f;if(null==a&&(a=this.element),1===a.nodeType){for(a=a.parentNode||a,e=a.querySelectorAll("."+this.config.boxClass),f=[],c=0,d=e.length;d>c;c++)b=e[c],g.call(this.all,b)<0?(this.boxes.push(b),this.all.push(b),this.stopped||this.disabled()?this.resetStyle():this.applyStyle(b,!0),f.push(this.scrolled=!0)):f.push(void 0);return f}},e.prototype.show=function(a){return this.applyStyle(a),a.className=""+a.className+" "+this.config.animateClass},e.prototype.applyStyle=function(a,b){var c,d,e;return d=a.getAttribute("data-wow-duration"),c=a.getAttribute("data-wow-delay"),e=a.getAttribute("data-wow-iteration"),this.animate(function(f){return function(){return f.customStyle(a,b,d,c,e)}}(this))},e.prototype.animate=function(){return"requestAnimationFrame"in window?function(a){return window.requestAnimationFrame(a)}:function(a){return a()}}(),e.prototype.resetStyle=function(){var a,b,c,d,e;for(d=this.boxes,e=[],b=0,c=d.length;c>b;b++)a=d[b],e.push(a.style.visibility="visible");return e},e.prototype.customStyle=function(a,b,c,d,e){return b&&this.cacheAnimationName(a),a.style.visibility=b?"hidden":"visible",c&&this.vendorSet(a.style,{animationDuration:c}),d&&this.vendorSet(a.style,{animationDelay:d}),e&&this.vendorSet(a.style,{animationIterationCount:e}),this.vendorSet(a.style,{animationName:b?"none":this.cachedAnimationName(a)}),a},e.prototype.vendors=["moz","webkit"],e.prototype.vendorSet=function(a,b){var c,d,e,f;f=[];for(c in b)d=b[c],a[""+c]=d,f.push(function(){var b,f,g,h;for(g=this.vendors,h=[],b=0,f=g.length;f>b;b++)e=g[b],h.push(a[""+e+c.charAt(0).toUpperCase()+c.substr(1)]=d);return h}.call(this));return f},e.prototype.vendorCSS=function(a,b){var c,e,f,g,h,i;for(e=d(a),c=e.getPropertyCSSValue(b),i=this.vendors,g=0,h=i.length;h>g;g++)f=i[g],c=c||e.getPropertyCSSValue("-"+f+"-"+b);return c},e.prototype.animationName=function(a){var b;try{b=this.vendorCSS(a,"animation-name").cssText}catch(c){b=d(a).getPropertyValue("animation-name")}return"none"===b?"":b},e.prototype.cacheAnimationName=function(a){return this.animationNameCache.set(a,this.animationName(a))},e.prototype.cachedAnimationName=function(a){return this.animationNameCache.get(a)},e.prototype.scrollHandler=function(){return this.scrolled=!0},e.prototype.scrollCallback=function(){var a;return!this.scrolled||(this.scrolled=!1,this.boxes=function(){var b,c,d,e;for(d=this.boxes,e=[],b=0,c=d.length;c>b;b++)a=d[b],a&&(this.isVisible(a)?this.show(a):e.push(a));return e}.call(this),this.boxes.length||this.config.live)?void 0:this.stop()},e.prototype.offsetTop=function(a){for(var b;void 0===a.offsetTop;)a=a.parentNode;for(b=a.offsetTop;a=a.offsetParent;)b+=a.offsetTop;return b},e.prototype.isVisible=function(a){var b,c,d,e,f;return c=a.getAttribute("data-wow-offset")||this.config.offset,f=window.pageYOffset,e=f+Math.min(this.element.clientHeight,this.util().innerHeight())-c,d=this.offsetTop(a),b=d+a.clientHeight,e>=d&&b>=f},e.prototype.util=function(){return null!=this._util?this._util:this._util=new b},e.prototype.disabled=function(){return!this.config.mobile&&this.util().isMobile(navigator.userAgent)},e}()}).call(this);

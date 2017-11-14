@@ -982,7 +982,7 @@ main.site-main{padding-bottom:50px}
 }@media screen and (min-width:830px){.location-slider{min-height:800px}
 }@media screen and (min-width:900px){.location-slider{min-height:700px}
 }@media screen and (min-width:1160px){.location-slider{min-height:570px}
-}#content{width:100%;position:relative;margin-top:0}
+}#content{width:100%;position:relative;margin-top:0;margin-bottom:50px}
 @media screen and (min-width:600px){#content{margin-top:-0}
 }@media screen and (min-width:1160px){#content{margin-top:-0}
 }.site-footer{background-image:url(images/footer.png);background-repeat:repeat;border-top:2px solid #b80808;width:100%;position:relative;margin-top:-20px}
