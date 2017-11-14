@@ -60,7 +60,7 @@ http://littlefriendspetsitting.com/
 					<a href="<?php echo $Charlotte; ?>">Charlotte</a>
 				</div>
 				<div class="maparea-img">
-					<img class="map" src="<?php bloginfo('template_url'); ?>/css/images/map.png"  usemap="#Map">
+					<img class="map" src="<?php bloginfo('template_url'); ?>/images/map.png"  usemap="#Map">
 				</div><!-- map areaimg -->
 			</div><!-- map area -->
 
